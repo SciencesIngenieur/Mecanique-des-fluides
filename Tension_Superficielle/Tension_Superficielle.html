@@ -1,0 +1,550 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Tension superficielle</title>
+    <link rel="stylesheet" type="text/css" media="print,screen" 
+      href="https://sciencesingenieur.github.io/Styles/styles.css"/>
+    <script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+    </script>
+  </head>
+  <body>
+
+    <section>
+    
+      <h1>Tension superficielle</h1>
+
+      <h2>Énergie de surface</h2>
+      
+      <h3>Notion de tension de surface</h3>
+      
+      <div>
+        Jusqu’ici nous avons considéré le fluide comme un milieu continu contraint par des
+        conditions aux limites que l’on a traité de façon simpliste (continuité de la vitesse et des
+        contraintes pour un fluide visqueux). En réalité, pour décrire correctement la physique aux
+        interfaces il faut tenir compte des interactions moléculaires à courte portée qui s’exercent
+        de part et d’autre de l’interface. La théorie classique de la capillarité consiste à
+        modéliser une interface comme une surface mathématique auquel on associe une certaine
+        élasticité représentée par la propriété physique que nous appellerons <b>tension
+        superficielle</b>.
+      </div>
+      
+      <div>
+        Essayons de justifier cette notion par un modèle simple. Considérons un liquide
+        \(\mathcal{F}_1\) en contact avec sa vapeur \(\mathcal{F}_2\). Au sein de chaque fluide les
+        molécules subissent des interactions de très courte portée (interaction de van der Waals
+        attractives). 
+      </div>
+      
+      <figure>
+        <img src="interactions_fluide.svg" width="30%">
+        <figcaption>Interactions au sein d’un fluide.</figcaption>
+      </figure>
+      
+      <div>
+        Ainsi, dans \(\mathcal{F}_1\), chaque molécule possède une énergie d’interaction
+        \(\varepsilon_1 \lt 0\) résultat de l’interaction attractive avec son voisinage immédiat. De
+        même on définira une énergie d’interaction \(\varepsilon_2\) au sein du fluide
+        \(\mathcal{F}_2\). Par contre, il existe une couche de fluide dans laquelle les molécules
+        sont soumises à l’action des deux fluides. L’épaisseur de ce film moléculaire est de l’ordre
+        de la dimension \(a\) d’une molécule. Appelons alors \(\varepsilon_{12}\) l’énergie
+        d’interaction d’une <q>molécule interfaciale</q>. Bien entendu, on a \(|\varepsilon_{12}|\)
+        compris entre \(|\varepsilon_1|\) et \(|\varepsilon_2|\). Si \(N\) est le nombre de
+        molécules et \(N_s\) le nombre de molécules à l’interface, l’énergie du liquide
+        \(\mathcal{F}_1\) vaut&#x202f;:
+        $$
+          \quad E_1 = (N - N_s)\varepsilon_1 + N_s \varepsilon_{12} = N \varepsilon_1 + E_s
+        $$
+        où \(E_s = N_s (\varepsilon_{12} - \varepsilon_1)\) représente l’énergie de l’interface.
+      </div>
+      
+      <div>
+        On voit donc que l’on peut associer à l’interface une énergie liée à <b>l’anisotropie des
+        forces d’interaction moléculaire</b>. Le terme d’anisotropie \(\varepsilon_{12}
+        - \varepsilon_1\) est positif. Enfin le nombre de molécules à l’interface est proportionnel
+        à l’aire \(S\) de l’interface. On a approximativement \(N_s = S/a^2\) de sorte que l’on peut
+        écrire&#x202f;:
+        $$
+          \quad \boxed{ E_s = \gamma S }
+        $$
+        où \(\gamma = \frac{\varepsilon_{12} - \varepsilon_1}{a^2}\) est par définition la
+        <b>tension superficielle</b>.
+      </div>
+      
+      <div>
+        La tension superficielle est une grandeur positive qui caractérise une interface. Ainsi la
+        tension de surface de l’interface eau-air n’est pas la même que celle de l’interface
+        eau-huile. Elle s’exprime en \(\rm{J.m^{−2}}\).
+      </div>
+      
+      <h3>Conséquences expérimentales</h3>
+      
+      <h4>Forme des bulles et gouttes</h4>
+      
+      <div>
+        Augmenter la surface d’un liquide coûte donc de l’énergie. Ainsi un liquide adoptera une
+        forme qui minimise la surface compte tenu des contraintes. On montre que pour un volume
+        donné la surface qui minimise l’énergie est une sphère. Par exemple une goutte d’huile dans
+        un mélange eau-alcool de densité identique sera sphérique. De la même manière, les bulles de
+        gaz carbonique dans le champagne sont sphériques.
+      </div>
+      
+      <h4>Coalescence</h4>
+      
+      <div>
+        On montre aussi que deux gouttes sphériques auront intérêt à former une goutte plus grosse.
+        Ainsi quand on agite énergiquement un mélange eau-huile on obtient une émulsion de petites
+        gouttes d’huile dans l’eau. Cette émulsion est instable&#x202f;: les petites gouttes
+        coalescent (on parle du phénomène de coalescence) et l’on obtient après un certain temps de
+        l’huile avec de l’eau au dessous.
+      </div>
+      
+      <figure>
+        <img src="coalescence _gouttes.jpg" width="50%">
+        <figcaption>Coalescence de deux gouttes.</figcaption>
+      </figure>
+      
+      <h4>Retard des changements d’état</h4>
+      
+      <div>
+        Lorsque l’on détend un liquide de façon isotherme, la thermodynamique prévoit qu’en dessous
+        d’une pression dite pression de vapeur saturante, le liquide change de phase pour se
+        vaporiser. Cependant la formation de la première bulle de vapeur coute de l’énergie de sorte
+        que le liquide peut exister dans une phase métastable en dessous de la pression de vapeur
+        saturante. On parle de retard à la vaporisation. Une simple perturbation locale peut suffire
+        à déclencher la formation d’une première bulle de vapeur. C’est ce phénomène qui fut employé
+        dans les détecteurs de particules du milieu du XXe siècle (chambres à bulles).
+      </div>
+      
+      <div>
+        De manière analogue, il y a retard à la liquéfaction pour la vapeur sursaturante (phénomène
+        utilisé dans un autre détecteur de particule&#x202f;: la chambre à Wilson).
+      </div>
+      
+      <h3>Rôle des tensio-actifs</h3>
+      
+      <div>
+        Les tensioactifs sont constituées de molécules amphiphiles c’est-à-dire munies d’un pôle
+        hydrophile et d’une longue chaîne hydrophobe. Lorsqu’un tensioactif est ajouté à de l’eau il
+        vient se placer immédiatement à la surface, avec la queue hydrophobe pointant à l’extérieur
+        de la surface. Ce processus s’accompagne d’une stabilisation de la surface et donc d’une
+        chute de la tension superficielle. Ce n’est qu’une fois la surface saturée, et n’offrant
+        plus d’espace disponible à de nouvelles molécules amphiphiles, que les tensioactifs vont
+        former des structures organisées au sein du liquide&#x202f;: ce sont les micelles. Les
+        micelles sont des structures sphériques ou ellipsoïdales dont la surface est constituée des
+        têtes hydrophiles des tensioactifs, alors que les queues hydrophobes de ces derniers sont
+        regroupées à l’intérieur. L’effet nettoyant des tensioactifs découle du fait que les
+        substances hydrophobes, telles que les matières grasses, peuvent être contenues à
+        l’intérieur des micelles. La concentration de tensioactifs au-dessus de laquelle les
+        micelles commencent à se former est connue comme la concentration micellaire critique (CMC).
+        Elle s’obtient en déterminant la concentration à partir de laquelle la tension superficielle
+        cesse de chuter.
+      </div>
+      
+      <h2>Forces capillaires</h2>
+      
+      <h3>Mise en évidence</h3>
+      
+      <div>
+        Plongeons un contour métallique dans de l’eau savonneuse puis retirons le. Il se forme alors
+        une membrane liquide plane qui s’appuie sur le contour. Auparavant, nous avons pris soin de
+        fixer un fil souple formant une boucle qui adopte une forme quelconque. Lorsque l’on crève
+        au moyen d’une aiguille la membrane située dans la boucle, celle-ci adopte aussitôt une
+        géométrie circulaire.
+      </div>
+      
+      <div>
+        Cette expérience montre que la boucle est soumise à des forces dites <b>forces
+        capillaires</b> aux propriétés suivantes&#x202f;:
+        <ol>
+          <li>Ces forces sont perpendiculaires en chaque point du contour et tendent à minimiser
+          l’aire du film d’eau savonneuse.</li>
+          <li>Ces forces sont tangentes à l’interface.</li>
+          <li>Elles sont réparties de façon uniforme. On peut donc définir une densité linéique de
+          force \(\mathrm{d}f/\mathrm{d}\ell\).</li>
+        </ol>
+      </div>
+      
+      <figure>
+        <img src="forces_capillaires.png">
+        <figcaption>Mise en évidence des forces capillaires.</figcaption>
+      </figure>
+      
+      <div>
+        De la même façon, si l’on forme une lame d’eau savonneuse sur un cadre rectangulaire dont un
+        des coté est mobile, le liquide cherchant à minimiser sa surface, il faut exercer une force
+        sur la tige mobile pour maintenir la surface constante. On peut obtenir l’expression de
+        cette force à l’aide d’un raisonnement énergétique (méthode des travaux virtuels)&#x202f;:
+        supposons qu’un opérateur déplace de façon quasi-statique la tige de longueur \(\ell\) en
+        produisant une force \(F_{op}\). Si l’on note \(\mathrm{d}x\) le déplacement, le théorème de
+        l’énergie cinétique appliqué à la tige donne&#x202f;:
+        $$
+          \quad \mathrm{d}E_c = 0 = \delta W = F_{op} \mathrm{d}x + \delta W_s
+        $$
+        où \(\delta W_s\) est le travail résistant des forces capillaires. Or ces forces dérivent
+        d’une énergie potentielle&#x202f;:
+        $$
+          \quad \delta W_s = \mathrm{d}E_S = - 2 \gamma \ell \mathrm{d}x
+            \Rightarrow F_{op} = 2 \gamma \ell
+        $$
+      </div>
+      
+      <div>
+        D’après le principe des actions réciproques (troisième loi de Newton), cette force
+        s’identifie à la résultante des forces capillaires s’exerçant sur la tige.
+      </div>
+      
+      <div>
+        De façon général, on peut traiter une interface comme une membrane tendue&#x202f;: chaque
+        portion de surface est le siège de forces capillaires réparties sur le contour
+        \(\mathcal{C}\) délimitant la portion de surface. Ces forces sont tangentes à l’interface,
+        perpendiculaires en tout point de \(\mathcal{C}\) et données par la relation&#x202f;:
+        $$
+          \quad \boxed{ \overrightarrow{\mathrm{d}f} = \gamma \mathrm{d}\ell \overrightarrow{n} }
+        $$
+        Lorsque que l’on traite une membrane d’eau savonneuse, il ne faut pas oublier qu’il y a deux
+        interfaces liquide-gaz ce qui explique la présence du facteur deux dans l’expression des
+        forces capillaires.
+      </div>
+      
+      <div>
+        Finalement, la tension superficielle est une force par unité de longueur, c’est pourquoi on
+        l’exprime couramment en \(\mathrm{N.m^{-1}}\).
+      </div>
+      
+      <h3>Mesure de la tension superficielle</h3>
+      
+      <h4>Méthode de l’anneau</h4>
+      
+      <div>
+        Historiquement la méthode de l’anneau a été la première à être développée. Il s’agit de
+        plonger un anneau (en platine en général) dans le liquide à étudier puis de le remonter
+        délicatement de façon à étirer un film au-dessous de l’anneau.
+      </div>
+      
+      <figure>
+        <img src="methode_anneau.svg">
+        <figcaption>Méthode de l’anneau.</figcaption>
+      </figure>
+      
+      <div>
+        Au cours de l’étirement du film de liquide la force exercée sur l’anneau est mesurée à
+        l’aide d’un dynamomètre et le système passe par un seuil où la force est maximale&#x202f;:
+        dans ce cas les forces capillaires sont verticales. Si l’on note \(r_1\) le rayon intérieur
+        de l’anneau et \(r_2\) son rayon extérieur, on a la relation&#x202f;:
+        $$
+          \quad F_{max} = 2\pi (r_1 + r_2) \gamma
+        $$
+        Sa mesure permet donc de déterminer la tension superficielle du liquide.
+      </div>
+      
+      <h4>Ordre de grandeur</h4>
+      
+      <div>
+        À température ordinaire, pour les liquides, la tension superficielle vaut quelques 
+        \(\mathrm{mN.m^{-1}}\). La tension superficielle varie avec la température&#x202f;;
+        \(\gamma\) diminue quand la température augmente jusqu’à s’annuler à la température
+        critique.
+      </div>
+      
+      <table>
+        <caption>Quelques valeurs de tension superficielle.</caption>
+        <tr>
+          <th>Liquide</th>
+          <th>Température</th>
+          <th>Tension superficielle (\(\mathrm{mN.m^{-1}}\))</th>
+        </tr>
+        <tr>
+          <td>Mercure</td>
+          <td>18&#x202f;°C</td>
+          <td>475</td>
+        </tr>
+        <tr>
+          <td>Eau</td>
+          <td>20&#x202f;°C</td>
+          <td>73</td>
+        </tr>
+        <tr>
+          <td>Eau</td>
+          <td>80&#x202f;°C</td>
+          <td>62</td>
+        </tr>
+        <tr>
+          <td>Huile d’olive</td>
+          <td>20&#x202f;°C</td>
+          <td>32</td>
+        </tr>
+      </table>
+      
+      <h3>Théorème de Laplace</h3>
+      
+      <div>
+        Un petit contour circulaire pris dans la surface libre plane d’un liquide en équilibre est
+        soumis à des forces de tension superficielle situées dans son plan et dont la résultante est
+        nulle. Par contre, pour une surface sphérique, les forces exercées sur ce même contour ont
+        une résultante orientée vers l’intérieur de la sphère&#x202f;; il faut donc une surpression 
+        \(\Delta p\) pour que l’équilibre existe. On voit immédiatement que plus la courbure est
+        importante et plus \(\Delta p\) sera grand.
+      </div>
+      
+      <figure>
+        <img src="theoreme_laplace.svg" width="60%">
+        <figcaption>Existence d’une surpression dans une bulle.</figcaption>
+      </figure>
+      
+      <div>
+        On peut facilement obtenir l’expression de la différence de pression à l’aide d’un
+        raisonnement énergétique. Considérons une bulle de gaz contenue dans un liquide et appelons
+        \(\gamma\) la tension superficielle de l’interface gaz-liquide. Supposons que l’on fasse
+        subir à la bulle une transformation quasi statique en augmentant son rayon de
+        \(\mathrm{d}r\). L’aire de l’interface augmente donc de \(\mathrm{d}\mathcal{S}=
+        8 \pi R \mathrm{d}R \) et le volume de la bulle de \(\mathrm{d}\mathcal{V}=
+        4 \pi R^2 \mathrm{d}R \). Appliquons le théorème de l’énergie cinétique en choisissant
+        comme système l’interface&#x202f;:
+        $$
+          \quad \mathrm{d}E_c = 0 = \delta W_{ext} + W_{int}
+        $$
+        Les forces extérieures sont les forces de pression \(p_{int}\) et \(p_{ext}\) de sorte
+        que&#x202f;:
+        $$
+          \quad \delta W_{ext} = - p_{ext} \mathrm{d}\mathcal{V} + p_{int} \mathrm{d}\mathcal{V}
+        $$
+        Par ailleurs, les forces internes sont les forces de tension superficielles qui dérivent
+        d’une énergie potentielle&#x202f;:
+        $$
+          \quad \delta W_{int} = - \gamma \mathrm{d}\mathcal{S} = - 8 \gamma \pi R \mathrm{d}R
+        $$
+        On a donc&#x202f;:
+        $$
+          \quad \Delta p 4 \pi R^2 \mathrm{d}R - 8 \gamma \pi R \mathrm{d}R = 0
+          \Rightarrow \Delta p = p_{int} - p_{ext} = \frac{2\gamma}{R}
+        $$
+      </div>
+      
+      <div>
+        De la même manière, à l’intérieur d’une bulle de savon, il règne une surpression&#x202f;:
+        $$
+          \quad \Delta p = p_{int} - p_{ext} = \frac{4\gamma}{R}
+        $$
+        où le facteur 4 est dû au fait que la bulle de savon présente deux interfaces liquide-gaz.
+        Ainsi la surpression est d’autant plus importante que la courbure moyenne \(C = 2/R\) est
+        importante.
+      </div>
+      
+      <div>
+        La généralisation à une géométrie quelconque est donnée par la <b>loi de
+        Laplace-Young</b>&#x202f;:
+        La différence de pression entre deux milieux non miscibles séparés par une interface de
+        tension superficielle \(\gamma\) est donnée par&#x202f;:
+        $$
+          \quad \boxed{ p_1 - p_2 = \gamma \left( \frac{1}{R_1} + \frac{1}{R_2} \right) }
+        $$
+        où \(R_1\) et \(R_2\) sont les rayons de courbure principaux de la membrane au point
+        considéré. Ces rayons sont définis positifs quand le rayon de courbure est du coté du milieu
+        1. Dans le cas d’une interface sphérique, ces deux rayons de courbure s’identifient au rayon
+        de la sphère.
+      </div>
+      
+      <h4>Ordre de grandeur</h4>
+      
+      <div>
+        Pour une bulle de savon de rayon \(R=1\,\rm{cm}\) et \(\gamma \simeq
+        25.10^{-3}\,\rm{N.m^{-1}}\) on obtient \(\Delta p \simeq 10\,\rm{Pa}\). Pour faire des
+        grosses bulles il faut fournir beaucoup d’énergie (surface importante) et générer une faible
+        surpression&#x202f;; il faut donc souffler tout doucement et longtemps.
+      </div>
+      
+      <h4>Mûrissement d’une mousse</h4>
+      
+      <div>
+        Dans une mousse humide (mousse à raser, mousse de bière, etc.), du gaz est enfermé dans des
+        bulles sphériques séparées par un film liquide pouvant plus ou moins laisser diffuser le gaz
+        selon l’épaisseur de la membrane et la taille des molécules gazeuses. Le gaz emprisonné est
+        en surpression par rapport au liquide en vertu de la loi de Laplace-Young&#x202f;:
+        $$
+          \quad \Delta p = \frac{2 \gamma}{R}
+        $$
+        Ainsi la pression est plus importante dans les petites bulles. C’est ce qui explique le
+        phénomène de mûrissement d’une mousse&#x202f;: le gaz contenu dans les petites bulles
+        traversent la membrane liquide par diffusion pour se diriger dans les zones de moins grande
+        pression, c’est-à-dire, dans les grosses bulles. Les petites bulles se vident donc dans les
+        grosses et la mousse s’enrichit en grosses bulles.
+      </div>
+      
+      <h4>Surface minimale</h4>
+      
+      <div>
+        Lorsque l’on trempe une structure métallique dans une eau de savon, on obtient une surface
+        minimale (l’interface va chercher a minimiser l’énergie superficielle) qui a la propriété
+        suivante&#x202f;: si la surface est ouverte, \(\Delta p = 0\) et donc&#x202f;:
+        $$
+          \quad \frac{1}{R_1} + \frac{1}{R_2} = 0
+        $$
+      </div>
+      
+      <div>
+        On dit que la courbure moyenne est nulle. Dans la plupart des cas on obtient des lames
+        planes qui forment une surface minimale \((R_1, R_2 \to \infty)\). On peut aussi obtenir des
+        lames avec deux rayons de courbures opposées comme sur la figure ci-dessous montrant une
+        caténoïde.
+      </div>
+      
+      <figure>
+        <img src="catenoide.jpg" width="50%">
+        <figcaption>Lame de savon formant une caténoide.</figcaption>
+      </figure>
+      
+      <h2>Mouillage</h2>
+      
+      <h3>Angle de contact</h3>
+      
+      <h4>Équilibre au contact de trois fluides</h4>
+      
+      <div>
+        Déposons une petite quantité de liquide 2 sur un autre liquide 1 plus dense. L’ensemble des
+        points en contact avec les deux liquides et l’air forme une ligne, dite ligne triple.
+        Intéressons nous aux forces capillaires s’exerçant sur cette ligne triple. L’équilibre n’est
+        possible que si la résultante des forces capillaires peut s’annuler ce qui définit l’angle
+        de contact \(\theta\)&#x202f;:
+        $$
+          \quad \overrightarrow{\gamma}_{12} + \overrightarrow{\gamma}_{23}
+            + \overrightarrow{\gamma}_{31} = \overrightarrow{0}
+        $$
+        où le vecteur \(\overrightarrow{\gamma}_{ij} = 
+        \frac{\mathrm{d}\overrightarrow{f}_{ij}}{\mathrm{d}\ell}\) désigne la densité linéique de
+        force capillaire. Cet équilibre suppose que l’on puisse former un triangle (dit triangle de
+        Neumann) avec les trois vecteurs \(\overrightarrow{\gamma}_{ij}\) ce qui n’est possible qu’à
+        condition que <b>chaque tension de surface soit inférieure à la somme des deux autres</b>.
+        Dans le cas contraire, le liquide 2 s’étale sur le liquide 1&#x202f;: on dit qu’il y a
+        <b>mouillage total</b>.
+      </div>
+      
+      <figure>
+        <img src="angle_contact.svg" width="30%">
+        <figcaption>Définition de l’angle de contact.</figcaption>
+      </figure>
+      
+      <h4>Équilibre d’un liquide au contact d’un solide</h4>
+      
+      <div>
+        Déposons une goutte de liquide sur un support plan. En général, le liquide adopte la forme
+        décrite sur la figure ci-contre, résultat d’un compromis entre le poids qui tends à diminuer
+        la position du centre de gravité de la goutte et des forces capillaires qui tendent à
+        minimiser l’aire de la surface libre. À l’équilibre, la résultante des forces capillaires en
+        un point de la ligne triple s’annule. En projection sur le plan de la surface solide, on a
+        donc&#x202f;:
+        $$
+          \quad \gamma_{SL} + \gamma_{LV} \cos(\theta) = \gamma_{SV}
+        $$
+        Cette relation trouvée par Young en 1805 définit l’angle de contact \(\theta\).
+      </div>
+      
+      <div>
+        On distingue trois cas de figure&#x202f;:
+        <ul>
+          <li>\(\theta > \pi/2\)&#x202f;: le liquide est non mouillant (exemple&#x202f;:
+          verre-mercure-air)</li>
+          <li>\(\theta \in [0, \pi/2]\)&#x202f;:il y a mouillage partiel (exemple&#x202f;:
+          verre-eau-air)</li>
+          <li>lorsque l’angle de contact n’est pas défini, il y a mouillage complet du liquide sur
+          le substrat solide</li>
+        </ul>
+      </div>
+      
+      <figure>
+        <img src="contact_liquide_solide.svg" width="30%">
+        <figcaption>Différents équilibres d’un liquide au contact d’un substrat solide.</figcaption>
+      </figure>
+      
+      <div>
+        Remarque&#x202f;:<br />
+        Dans la direction perpendiculaire à la surface solide, les forces capillaires ne se
+        compensent pas ce qui signifie que le solide se déforme. On peut montrer que pour les
+        solides courants, cette déformation est plus petite que la taille d’un atome et donc
+        négligeable.
+      </div>
+      
+      <h3>Ascension capillaire</h3>
+      
+      <div>
+        Quand on plonge un capillaire propre (tube étroit de rayon \(r\)) dans de l’eau, on observe
+        l’ascension d’une colonne d’eau dans le capillaire malgré la pesanteur. Cette ascension est
+        d’autant plus importante que le rayon est petit.
+      </div>
+      
+      <div>
+        La loi de Jurin donne&#x202f;:
+        $$
+          \quad h = \frac{\rm{C^{te}}}{r}
+        $$
+        où la constante dépend du liquide et de l’angle de contact.
+      </div>
+      
+      <figure>
+        <img src="jurin.jpg" width="30%">
+        <figcaption>Expérience de la loi de Jurin.</figcaption>
+      </figure>
+      
+      <figure>
+        <img src="jurin_2.svg">
+        <figcaption>Schéma capillaire.</figcaption>
+      </figure>
+      
+      <div>
+        On peut utiliser la loi de Laplace-Young pour démontrer la loi de Jurin. En effet,
+        considérons l’interface liquide raccordée à la paroi du tube avec un angle \(\theta\) et
+        supposons que le ménisque est sphérique de rayon \(R\). L’air étant à la pression \(p_0\),
+        la pression qui règne dans le liquide au voisinage du ménisque vaut \(p_0 - \Delta p\) avec
+        \(\Delta p = 2 \gamma / R \) en vertu de la loi de Laplace-Young. Le rayon de courbure vaut
+        \(R = r/\cos \theta\) d’où&#x202f;:
+        $$
+          \quad p_h = p_0 - \frac{2 \gamma \cos \theta}{r}
+        $$
+      </div>
+      
+      <div>
+        Or si l’on applique les lois de l’hydrostatique au niveau de la surface libre du récipient
+        dans lequel plonge le tube, on trouve&#x202f;:
+        $$
+          \quad p_0 = p_0 - \frac{2 \gamma \cos \theta}{r} + \rho g h
+          \quad \Rightarrow \quad h = \frac{2 \gamma \cos \theta}{\rho g}\frac{1}{r}
+        $$
+      </div>
+      
+      <div>
+        Il y a donc ascension capillaire si le liquide mouille la paroi (\(\theta \lt \pi /2 \)).
+        Par contre pour un liquide non mouillant il y a descente capillaire (cas du mercure dans un
+        capillaire en verre).
+      </div>
+      
+      <div>
+        <u>Exemple&#x202f;:</u><br />
+        Pour l’eau dans un tube de verre propre l’angle de raccordement vaut 0 (l’eau mouille le
+        tube). Si \(r = 0,01\,\rm{mm}\) on obtient&#x202f;:
+        $$
+          \quad h = \frac{2 \gamma}{\rho g}\frac{1}{r} = 1,5\,\rm{m}
+        $$
+        L’ascension peut donc être très importante. C’est ce qui explique par exemple les remontées
+        d’humidité par capillarité que l’on peut observer dans des milieux poreux notamment dans
+        certains bâtiments.
+      </div>
+      
+      <div>
+        Remarque&#x202f;:<br />
+        La loi de Jurin suppose que le ménisque est sphérique et donc que la pression sous le
+        ménisque est uniforme. Or rigoureusement, comme les bords du ménisque sont plus haut que le
+        centre, cette pression ne peut pas être uniforme. Elle ne peut l’être qu’approximativement à
+        condition que l’élévation du ménisque soit négligeable devant la hauteur d’ascension \(h\). 
+        Il est facile de montrer que cette condition se traduit par&#x202f;:
+        $$
+          \quad r \ll \frac{\cos \theta}{\sqrt{1-\sin \theta }}\sqrt{\frac{\gamma}{\rho g}}
+        $$
+        Pour les petits angles cela donne&#x202f;:
+        $$
+          \quad r \ll \sqrt{\frac{\gamma}{\rho g}} \simeq 2,7\,\rm{mm}
+        $$
+      </div>
+      
+    </section>
+  </body>
+</html>
