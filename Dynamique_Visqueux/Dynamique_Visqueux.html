@@ -1,0 +1,1115 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Dynamique des fluides visqueux</title>
+    <link rel="stylesheet" type="text/css" media="print,screen" 
+      href="https://sciencesingenieur.github.io/Styles/styles.css"/>
+    <script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+    </script>
+  </head>
+  <body>
+
+    <section>
+    
+      <h1>Dynamique des fluides visqueux</h1>
+
+      <h2>Notion de viscosité</h2>
+      
+      <div>
+        Dans un fluide parfait, la contrainte qui s’exerce sur une particule de fluide est toujours
+        perpendiculaire aux parois de celle-ci. Dans un fluide réel en écoulement, la contrainte
+        possède une composante tangentielle dite <b>contrainte visqueuse</b>.
+      </div>
+      
+      <h3>Fluides newtoniens</h3>
+      
+      <h4>Expérience de Couette</h4>
+      
+      <div>
+        Considérons un fluide enfermé entre deux cylindres, l’un mobile, l’autre fixé via un fil de
+        torsion. On constate que lorsque la cavité cylindrique extérieure est mise en rotation à
+        la vitesse angulaire \(\omega\), le cylindre intérieur tourne d’un angle \(\alpha\) par
+        rapport à sa position d’équilibre.
+      </div>
+      
+      <figure>
+        <img src="couette_exp.svg" width="30%">
+        <figcaption>Expérience de Couette.</figcaption>
+      </figure>
+      
+      <div>
+        Analysons en détail le phénomène.
+        <ol>
+          <li>La torsion du fil conduit à l’existence d’un couple dont les forces de pression ne
+          peuvent pas être responsables. On est donc obligé d’admettre l’existence d’efforts
+          tangentiels.</li>
+          <li>On observe que les particules de fluide adhèrent aux parois. Il existe donc un
+          gradient de vitesse au sein de l’écoulement.</li>
+          <li>Pour les fluides simples, l’angle \(\alpha\) augmente proportionnellement à
+          \(\omega\). Les efforts tangentiels augmentent donc proportionnellement au gradient de
+          vitesse.</li>
+        </ol>
+      </div>
+      
+      <h4>Interprétation</h4>
+      
+      <div>
+        L’expérience montre que, lors de l’écoulement d’un fluide, la pression ne suffit pas à
+        expliquer les phénomènes et qu’il convient d’introduire des forces tangentielles qui
+        s’opposent au mouvement du fluide. Ces forces, de type frottement, dues aux interactions
+        entre molécules du fluide, sont appelées forces de viscosité. La contrainte (force par unité
+        de surface) \(\overrightarrow{\sigma}\) qu’exerce une couche de fluide supérieure sur un
+        élément de surface d’une couche de fluide inférieure, s’écrit&#x202f;:
+        $$
+          \quad \overrightarrow{\sigma}_{1 \to 2} = \frac{\overrightarrow{\mathrm{d}F}}{\mathrm{d}S}
+            = \sigma_n\overrightarrow{n} + \sigma_t\overrightarrow{t}
+        $$
+        avec \(\sigma_n = -p\).
+      </div>
+      
+      <figure>
+        <img src="contraintes_internes.svg" width="30%">
+        <figcaption>Contraintes internes dans le fluide.</figcaption>
+      </figure>
+      
+      <h4>Fluide newtonien</h4>
+      
+      <div>
+        Entre deux couches successives de fluide en écoulement unidimensionnel à la vitesse 
+        \(\overrightarrow{v}\), il existe des contraintes tangentielles à l’écoulement qui
+        accélèrent la couche la plus lente et ralentissent la couche la plus rapide. Par définition
+        d’un fluide newtonien, les forces visqueuses sont proportionnelles à la différence de
+        vitesse c’est-à-dire au gradient de vitesse.
+        $$
+          \quad \boxed{ \sigma_t = \eta \frac{\partial v}{\partial n} = \eta \dot{\gamma} }
+        $$
+        où \(\frac{\partial v}{\partial n}\) désigne le gradient de vitesse dans la direction
+        normale à la surface. De manière générale, la contrainte visqueuse varie comme la <b>vitesse
+        de cisaillement</b> \(\dot{\gamma}\). La constante de proportionnalité \(\eta\) est
+        caractéristique du fluide et désigne la viscosité dynamique du fluide.
+      </div>
+      
+      <h3>Mesure de viscosité</h3>
+      
+      <div>
+        L’analyse dimensionnelle de la relation donne&#x202f;:
+        $$
+          \quad [\eta] = \frac{[F]}{L^2}\frac{L}{[v]} = \frac{[F]}{L^2}T
+        $$
+        Ainsi, la viscosité est homogène à une pression multipliée par un temps. On l’exprime
+        indifféremment en <b>pascal.seconde</b> (\(\rm{Pa.s}\)) ou en <b>poiseuille</b>
+        (\(\rm{P\ell}\)).
+      </div>
+      
+      <div>
+        Le viscosimètre est l’appareil de mesure de la viscosité. Différents types de viscosimètre
+        existent suivant le type de fluide utilisé. Pour les liquides, on utilise essentiellement le
+        viscosimètre de Couette ou le viscosimètre à tube capillaire.
+      </div>
+      
+      <h4>Ordres de grandeur</h4>
+      
+      <div>
+        Pour les liquides, la viscosité varie fortement avec la température (elle diminue lorsque la
+        température augmente). Pour des liquides purs, elle suit une loi du type&#x202f;:
+        $$
+          \quad \eta \propto \mathrm{e}^{b/T}
+        $$
+      </div>
+      
+      <div>
+        Quant aux gaz, leur viscosité est plus difficile à mesurer car beaucoup plus faible que
+        celle des liquides. Sa détermination peut se faire à l’aide d’une&#x202f;:
+        <ul>
+          <li>mesure de vitesse (viscosimètre à bille roulante, viscosimètre à tube capillaire)</li>
+          <li>mesure de fréquence de résonance d’une onde de cisaillement (viscosimètre à cristal
+          piézo-électrique de torsion).</li>
+        </ul>
+        Elle dépend peu de la pression et augmente légèrement avec la température (à peu près comme
+        \(\sqrt{T}\)).
+      </div>
+      
+      <table>
+        <caption>Quelques valeurs de viscosité.</caption>
+        <tr>
+          <th>Liquide (20&#x202f;°C)</th>
+          <th> Viscosité (\(\rm{Pa.s}\))</th>
+        </tr>
+        <tr>
+          <td>Eau</td>
+          <td>\(1,0 \times 10^{-3}\)</td>
+        </tr>
+        <tr>
+          <td>Huile d’olive</td>
+          <td>\(0,84\)</td>
+        </tr>
+        <tr>
+          <td>Glycérine pure</td>
+          <td>\(1,5\)</td>
+        </tr>
+        <tr>
+          <td>Mercure</td>
+          <td>\(1,5 \times 10^{-3}\)</td>
+        </tr>
+        <tr>
+          <th>Gaz</th>
+          <th> Viscosité (\(\rm{Pa.s}\))</th>
+        </tr>
+        <tr>
+          <td>Vapeur d’eau (20&#x202f;°C)</td>
+          <td>\(9,7 \times 10^{-6}\)</td>
+        </tr>
+        <tr>
+          <td>Air sec (20&#x202f;°C)</td>
+          <td>\(18,2 \times 10^{-6}\)</td>
+        </tr>
+        <tr>
+          <td>\(\rm{He}\) (20&#x202f;°C)</td>
+          <td>\(19,9 \times 10^{-6}\)</td>
+        </tr>
+        <tr>
+          <td>\(\rm{N_2}\) (20&#x202f;°C)</td>
+          <td>\(17,7 \times 10^{-6}\)</td>
+        </tr>
+      </table>
+      
+      <h3>Fluides non newtoniens</h3>
+      
+      <div>
+        Le comportement newtonien (\(\sigma = \eta \dot{\gamma}\)) s’observe&#x202f;:
+        <ul>
+          <li>dans tous les gaz</li>
+          <li>dansles liquides simples constitués de petites molécules (l’eau par exemple)</li>
+          <li>dans les solutions contenant des ions ou molécules à symétrie sphérique</li>
+        </ul>
+      </div>
+      
+      <div>
+        Cependant la rhéologie (l’étude du comportement des fluides en écoulement) montre qu’il
+        existe des fluides pour lesquels la relation entre contrainte tangentielle et cisaillement
+        est plus complexe. Certains fluides vérifient la relation&#x202f;:
+        $$
+          \quad \sigma_t = \eta(\dot{\gamma}) \dot{\gamma}
+        $$
+        où \(\eta(\dot{\gamma})\) représente une viscosité apparente.<br />
+        Lorsque \(\eta(\dot{\gamma})\) diminue avec \(\dot{\gamma}\), le fluide coule d’autant plus
+        facilement qu’il est cisaillé. On parle alors de fluide rhéofluidifiant (sang, polymère
+        fondu, etc.). Le comportement inverse est désigné par le terme rhéoépaississant (amidon +
+        eau). Il existe également des liquides, comme les peintures, qui ne coulent que si la
+        contrainte dépasse un valeur seuil.
+      </div>
+      
+      <h4>Comportement visco-élastique</h4>
+      
+      <div>
+        Tout fluide se caractérise par un temps de relaxation viscoélastique \(\tau_{ve}\).
+        Lorsqu’un fluide est soumis à une contrainte, on distingue trois types de comportement en
+        fonction du temps d’observation \(t\)&#x202f;:
+        <ul>
+          <li>si \(t \ll \tau_{ve}\) le fluide adopte un comportement élastique (déformation
+          proportionnelle à la contrainte)</li>
+          <li>si \(t \gg \tau_{ve}\) le fluide adopte un comportement visqueux (vitesse de
+          cisaillement proportionnelle à la contrainte \(\sigma = \eta \dot{\gamma}\))</li>
+          <li>si \(t \simeq \tau_{ve}\) le comportement est alors plus complexe et il est dit
+          visco-élastique</li>
+        </ul>
+      </div>
+      
+      <div>
+        C’est pourquoi, du point de vue mécanique, la distinction entre un solide et un liquide est
+        artificielle. Ce que l’on appelle communément un liquide est un fluide de petit temps de
+        relaxation (\(\tau_{ve} = 1\,\rm{ns}\) pour l’eau) et ce que l’on appelle un solide peut
+        être vu comme un fluide de grand temps de relaxation (\(\tau_{ve} = 10^6\,\)ans pour le
+        manteau de la croûte terrestre). \(\tau_{ve}\) dépend fortement de la température ce qui
+        confère à certains systèmes un comportement fluide ou solide suivant la température (bitume
+        par exemple).
+      </div>
+      
+      <div>
+        Un exemple de fluide viscoélastique est la pâte de silicone connue sous le nom de
+        <q>silly-putty</q>. Une boule de <q>silly-putty</q> rebondit sur le sol comme une balle
+        élastique (aux temps courts) mais s’étale comme un fluide visqueux (aux temps longs) si on
+        la pose sur une surface horizontale.
+      </div>
+      
+      <h2>Dynamique d’un écoulement visqueux</h2>
+      
+      <div>
+        Lorsque le fluide est newtonien et incompressible, les équations de Newton appliquées à
+        chaque particule de fluide prennent la forme des <b>équations de Navier-Stokes</b>.
+      </div>
+      
+      <h3>Bilan des forces</h3>
+      
+      <div>
+        Plaçons nous dans un référentiel galiléen et effectuons un bilan des forces sur une
+        particule de fluide située en \(M\) à l’instant \(t\), de masse \(\mathrm{d}m =
+        \rho(M,t)\mathrm{d}\tau\). En plus des forces de pression et des forces extérieures
+        volumiques, il faut ajouter la résultante des forces visqueuses&#x202f;:
+        $$
+          \quad \mathrm{d}\overrightarrow{F} =
+            \left( \overrightarrow{f_V}{}^{ext} - \overrightarrow{\nabla}p \right)\mathrm{d}\tau
+              + \mathrm{d}\overrightarrow{F_{\eta}}
+        $$
+      </div>
+      
+      <div>
+        L’expression de \(\mathrm{d}\overrightarrow{F_{\eta}}\) est en général assez compliquée mais
+        elle se simplifie dans le cas des fluides newtoniens et incompressibles.
+      </div>
+      
+      <h4>Cas d’un écoulement parallèle unidimensionnel</h4>
+      
+      <div>
+        Calculons la résultante des forces visqueuses dans le cas particulier simple d’un écoulement
+        suivant \((O_x)\) avec un gradient de vitesse suivant \((O_y)\)&#x202f;:
+        $$
+          \quad \overrightarrow{v} = v(y)\overrightarrow{u_x}
+        $$
+      </div>
+      
+      <figure>
+        <img src="bilan_forces.svg" width="30%">
+        <figcaption>Bilan des forces de viscosité sur un élément de fluide.</figcaption>
+      </figure>
+      
+      <div>
+        On remarque ici que \(\mathrm{div} \overrightarrow{v} = 0\). L’écoulement est donc bien
+        incompressible. Dans ce cas, la résultante des forces visqueuses s’exerçant sur une
+        particule de fluide, s’écrit&#x202f;:
+        $$
+          \quad \mathrm{d}\overrightarrow{F_{\eta}} = 
+            \eta \left[ \frac{\mathrm{d}v}{\mathrm{d}y}(y + \mathrm{d}y)
+                       -\frac{\mathrm{d}v}{\mathrm{d}y}(y) \right]
+              \mathrm{d}x\mathrm{d}z \overrightarrow{u_x}
+            = \eta \frac{\mathrm{d}^2\overrightarrow{v}}{\mathrm{d}y^2}\mathrm{d}\tau
+        $$
+      </div>
+      
+      <div>
+        On voit apparaître une force volumique qui s’exprime comme le laplacien de la vitesse.
+      </div>
+        
+      <h4>Cas général</h4>  
+      
+      <div>
+        La formule obtenue dans un cas particulier se généralise aux écoulements incompressibles des
+        fluides newtoniens. On admettra que pour un fluide newtonien incompressible, la résultante
+        des forces visqueuses s’écrit&#x202f;:
+        $$
+          \quad \boxed{ \mathrm{d}\overrightarrow{F_{\eta}}
+            = \eta \Delta \overrightarrow{v} \mathrm{d}\tau }
+        $$
+      </div>
+      
+      <h3>Équation de Navier-Stokes</h3>
+      
+      <div>
+        D’après la seconde loi de Newton appliquée à une particule de fluide, on a&#x202f;:
+        $$
+          \quad \rho\mathrm{d}\tau\frac{\mathrm{D}\overrightarrow{v}}{\mathrm{D}t} =
+            - \overrightarrow{\nabla}p\mathrm{d}\tau + \overrightarrow{f_V}{}^{ext}\mathrm{d}\tau
+            + \mathrm{d}\overrightarrow{F_{\eta}}
+        $$
+        avec \(\mathrm{d}\overrightarrow{F_{\eta}}= \eta \Delta \overrightarrow{v} \mathrm{d}\tau\).
+      </div>
+      
+      <div>
+        En divisant par \(\mathrm{d}\tau\), on obtient l’équation de Navier-Stokes.
+      </div>
+      
+      <div>
+        Pour un fluide incompressible newtonien, la dynamique de l’écoulement vérifie
+        l’équation&#x202f;:
+         $$
+          \quad \boxed{
+            \rho \left[ \frac{\partial \overrightarrow{v}}{\partial t}
+            + \left( \overrightarrow{v} \cdot \overrightarrow{\nabla} \right) \overrightarrow{v}
+            \right] =
+            -\overrightarrow{\nabla}p + \overrightarrow{f_V}{}^{ext} + \eta\Delta\overrightarrow{v}}
+        $$
+      </div>
+      
+      <div>
+        Il s’agit donc d’une équation aux dérivées partielles du second ordre et non linéaire. Cette
+        équation recèle encore quelques mystères qui résistent à la sagacité des mathématiciens.
+      </div>
+
+      <h4>Conditions aux limites</h4>
+      
+      <div>
+        L’équation de Navier-Stokes étant une équation du second ordre, sa résolution introduit deux
+        constantes d’intégration pour la pression \(p\) et pour la vitesse \(\overrightarrow{v}\).
+        On les détermine en appliquant les conditions aux limites suivantes&#x202f;:
+        <ul>
+          <li>continuité de la vitesse à la traversée d’une interface</li>
+          <li>continuité de la contrainte normale et donc de la pression</li>
+          <li>continuité de la contrainte tangentielle</li>
+        </ul>
+      </div>
+      
+      <h3>Le nombre de Reynolds</h3>
+      
+      <div>
+        La complexité provient essentiellement de la présence, dans l’équation de Navier-Stokes,
+        d’un terme non linéaire <span class="incise">le terme convectif</span> et d’un terme du
+        second ordre <span class="incise">le terme de viscosité</span>. Dans de nombreux cas, on
+        peut négliger l’un des deux termes devant l’autre. On définit alors un facteur sans
+        dimension, qui estime l’importance du terme convectif devant le terme de viscosité. On peut
+        estimer l’ordre de grandeur du terme convectif et du terme visqueux à partir de l’échelle
+        caractéristique \(D\) du problème, de la vitesse moyenne d’écoulement \(v\), de la masse
+        volumique \(\rho\) du fluide et de sa viscosité \(\eta\).
+        $$
+          \quad \|\rho \left( \overrightarrow{v} \cdot \overrightarrow{\nabla} \right)
+            \overrightarrow{v} \| \approx \rho \frac{v^2}{D}
+        $$
+        et
+        $$
+          \quad \| \eta \Delta \overrightarrow{v} \| \approx \eta \frac{v}{D^2}
+        $$
+        D’où le nombre sans dimension appelé <b>nombre de Reynolds</b>&#x202f;:
+        $$
+          \quad \boxed{ R_e = \frac{\text{terme convectif}}{\text{terme visqueux}}
+          = \frac{\rho v D}{\eta} }
+        $$
+      </div>
+      
+      <div>
+        Ce nombre joue un rôle très important en mécanique des fluides car il permet de distinguer
+        trois types d’écoulement.
+      </div>
+      
+      <h4>L’écoulement à petit nombre de Reynolds \(R_e \ll 1 \)</h4>
+      
+      <div>
+        L’écoulement est laminaire et essentiellement gouverné par la viscosité. Le terme d’inertie
+        est négligeable et l’équation de Navier-Stokes devient&#x202f;:
+        $$
+          \quad \rho \frac{\partial \overrightarrow{v}}{\partial t} =
+            -\overrightarrow{\nabla}p + \overrightarrow{f_V}{}^{ext} + \eta\Delta\overrightarrow{v}
+        $$
+        Cette équation est linéaire. Si l’écoulement est permanent, on obtient le régime de Stokes.
+      </div>
+      
+      <h4>L’écoulement à grand nombre de Reynolds \(R_e \gg 1 \)</h4>
+      
+      <div>
+        On montre dans ce cas que les effets visqueux sont concentrés sur les bords, dans une fine
+        couche appelée couche limite, et dans le sillage des obstacles. Hors de ces zones, le terme
+        visqueux est négligeable et l’on retrouve l’équation d’Euler&#x202f;:
+         $$
+          \quad
+            \rho \left[ \frac{\partial \overrightarrow{v}}{\partial t}
+             + \left( \overrightarrow{v} \cdot \overrightarrow{\nabla} \right) \overrightarrow{v}
+             \right] = -\overrightarrow{\nabla}p(M,t) + \overrightarrow{f_V}{}^{ext}
+        $$
+      </div>
+      
+      <h4>Écoulement turbulent</h4>
+      
+      <div>
+        La viscosité stabilise et régularise les écoulements de façon générale. Ainsi, quand le
+        nombre de Reynolds augmente le régime laminaire devient instable voire turbulent. La
+        transition entre le régime laminaire et turbulent se produit dans une certaine gamme de
+        valeur du nombre de Reynolds qui dépend du problème. On peut retenir qu’en général, lorsque
+        \(R_e \gt 10^5\), l’écoulement devient turbulent, c’est-à-dire que la vitesse en un point
+        M varie dans le temps de façon erratique. Dans ce cas, le problème étant analytiquement
+        insoluble, on utilise souvent des lois phénoménologiques associées à une analyse
+        dimensionnelle.
+      </div>
+      
+      <h4>Exemple</h4>
+      
+      <div>
+        Quel est l’ordre de grandeur du nombre de Reynolds associé à l’écoulement autour d’une balle
+        de tennis allant à la vitesse \(v = 100\,\rm{km.h^{-1}}\) dans l’air ?
+      </div>
+      
+      <div>
+        Le diamètre d’une balle de tennis est de l’ordre de 7&#x202f;cm, la masse volumique de l’air
+        de l’ordre de \(1\,\rm{kg.m^{-3}}\) et sa viscosité de l’ordre de \(2\times 10^{-5}\) de
+        sorte que&#x202f;:
+        $$
+          \quad R_e = \frac{\rho v D}{\eta} = \frac{1 \times 100/3,6 \times 0,07}{2\times 10^{-5}}
+          \simeq 10^5
+        $$
+      </div>
+      
+      <div>
+        L’écoulement est donc turbulent.
+      </div>
+      
+      <h2>Pertes de charge</h2>
+      
+      <h3>Loi de Poiseuille</h3>
+      
+      <div>
+        On s’intéresse à l’écoulement d’un fluide visqueux dans un long tube cylindrique de rayon
+        \(R\) et de longueur \(L \gg R\). Le tube est horizontal (orienté suivant \(Oz\)) et
+        l’écoulement est assuré grâce à l’existence d’une différence de pression \(\Delta p\) entre
+        l’entrée du tube et la sortie du tube.
+      </div>
+      
+      <figure>
+        <img src="ecoulement_Poiseuille.svg" width="30%">
+        <figcaption>Écoulement de Poiseuille. Position du problème.</figcaption>
+      </figure>
+      
+      <h4>Hypothèses de travail</h4>
+      
+      <div>
+        On fait les hypothèses suivantes&#x202f;:
+        <ol>
+          <li>L’écoulement est permanent donc \(\frac{\partial \overrightarrow{v}}
+          {\partial t} = \overrightarrow{0}\)</li>
+          <li> L’écoulement est incompressible, par conséquent \(\mathrm{div}\overrightarrow{v}
+          =0\)</li>
+          <li>Le nombre de Reynolds est suffisamment petit pour supposer un régime d’écoulement
+          laminaire. En pratique, on considère que c’est le cas, quand \(R_e \lt 2000\)</li>
+          <li>L’écoulement est parallèle à \(Oz\) et invariant par rotation autour de l’axe \(Oz\),
+          d’où \(\overrightarrow{v} = v(r,z)\overrightarrow{u_z}\)</li>
+          <li>Enfin, on néglige la pesanteur car \(\rho g R \ll \Delta p\)</li>
+        </ol>
+      </div>
+      
+      <h4>Calcul du champ de vitesse</h4>
+      
+      <div>
+        Commençons par écrire l’équation de continuité&#x202f;:
+        $$
+          \quad \mathrm{div}\overrightarrow{v} = 
+             \frac{\partial(rv_r)}{r\partial r}
+            +\frac{\partial(v_{\theta})}{r\partial \theta}
+            +\frac{\partial (v_z)}{\partial z} = 0 = \frac{\partial (v_z)}{\partial z}
+            \Rightarrow \overrightarrow{v} = v(r)\overrightarrow{u_z}
+        $$
+        La vitesse ne dépend pas de \(z\).
+      </div>
+      
+      <div>
+        Calculons l’accélération&#x202f;:
+        $$
+          \quad \overrightarrow{a}(M,t) = \frac{\partial(\overrightarrow{v})}{\partial t}
+            + v_z \frac{\partial}{\partial z} v_z(r) \overrightarrow{u_z} = \overrightarrow{0}
+        $$
+        L’accélération est nulle. En effet, les lignes de champ sont des droites horizontales et se
+        confondent avec la trajectoire des particules (régime stationnaire). Or si la vitesse ne
+        dépend pas de \(z\) cela signifie que les particules de fluide se déplacent avec une vitesse
+        constante en direction et en intensité. L’accélération est donc nulle. On peut aussi ajouter
+        que chaque particule de fluide est soumise à deux forces qui se compensent&#x202f;: les
+        forces de pression et les forces de viscosité. Sans force de pression, c’est-à-dire <b>sans
+        différence de pression, il ne peut pas avoir d’écoulement stationnaire</b>.
+      </div>
+      
+      <div>
+        L’équation de Navier-Stokes se réduit donc à l’équation de Stokes&#x202f;:
+        \(\overrightarrow{\nabla}p = \eta\Delta\overrightarrow{v}\). Projetons cette relation dans
+        la base cylindrique&#x202f;:
+        $$
+          \quad \left| \begin{aligned}
+          \frac{\partial p}{\partial r} &= 0 \\
+          \frac{\partial p}{r \partial \theta } &= 0 \\
+          \frac{\partial p}{\partial z} &= \eta \frac{1}{r} \frac{\mathrm{d}}{\mathrm{d}r}
+            \left( r \frac{\mathrm{d}v}{\mathrm{d}r} \right)
+          \end{aligned} \right.
+        $$
+        d’où
+        $$
+          \quad \frac{\mathrm{d} p}{\mathrm{d} z} =
+            \eta \frac{1}{r} \frac{\mathrm{d}}{\mathrm{d}r}
+              \left( r \frac{\mathrm{d}v}{\mathrm{d}r} \right)
+        $$
+        Ainsi, la pression ne dépend que de \(z\). 
+      </div>
+      
+      <div>
+        Le terme de gauche de la dernière équation ne dépend donc que de \(z\) alors que celui de
+        droite ne dépend que de \(r\). Cette équation apparemment paradoxale se résout si les deux
+        termes sont constants.
+        $$
+          \quad \frac{\mathrm{d} p}{\mathrm{d} z} = K = \frac{\Delta p}{L} =
+          \eta \frac{1}{r} \frac{\mathrm{d}}{\mathrm{d}r}
+              \left( r \frac{\mathrm{d}v}{\mathrm{d}r} \right)
+        $$
+        où \(\Delta p = p_1 - p_2\) est la différence de pression entre l’entrée et la sortie.
+      </div>
+      
+      <div>
+        En intégrant deux fois on obtient&#x202f;:
+        $$
+          \quad v(r) = -\frac{\Delta p}{4 \eta L} r^2 + C_1 \mathrm{ln}r + C_2
+        $$
+        où \(C_1\) et \(C_2\) sont deux constantes d’intégration.
+      </div>
+      
+      <div>
+        La vitesse doit être définie en \(r=0\) ce qui implique \(C_1 = 0\).
+      </div>
+      
+      <div>
+        Enfin, les conditions aux limites imposent \(v(R)=0\) d’où&#x202f;:
+        $$
+          \quad v(r) = \frac{\Delta p}{4 \eta L} \left( R^2 - r^2 \right)
+        $$
+        Le profil des vitesses est parabolique.
+      </div>
+      
+      <figure>
+        <img src="profil_vitesse.svg" width="30%">
+        <figcaption>Profil de vitesse.</figcaption>
+      </figure>
+      
+      <h4>Calcul du débit volumique</h4>
+      
+      <div>
+        Le débit volumique est le flux du vecteur vitesse à travers une section de la
+        canalisation&#x202f;:
+        $$
+          \quad Q_V = \iint \overrightarrow{v} \mathrm{d} \overrightarrow{S}
+          = \int_0^R v(r) 2 \pi r \mathrm{d}r
+          = \frac{\pi R^4}{8 \eta}\frac{\Delta p}{L}
+        $$
+      </div>
+      
+      <div>
+        Ainsi, la différence de pression est directement reliée au débit volumique par la formule de
+        Poiseuille&#x202f;:
+        $$
+          \quad \boxed{ \Delta p = \frac{8 \eta L}{\pi R^4} Q_V }
+        $$
+      </div>
+      
+      <h3>Analogie électrique</h3>
+      
+      <div>
+        On peut faire une analogie avec la conduction électrique et définir une résistance
+        hydraulique \(R_H\) analogue de la résistance électrique&#x202f;:
+      </div>
+      
+      <table>
+        <tr>
+          <th>Concepts électriques</th>
+          <th>Concepts hydrauliques</th>
+        </tr>
+        <tr>
+          <td>Potentiel \(V\)</td>
+          <td>Pression \(p\)</td>
+        </tr>
+        <tr>
+          <td>ddp \(U = V_1 - V_2\)</td>
+          <td>Différence de pression \(\Delta p\)</td>
+        </tr>
+        <tr>
+          <td>Intensité du courant électrique \(I\)</td>
+          <td>Débit volumique \(Q_V\)</td>
+        </tr>
+        <tr>
+          <td>Loi d’Ohm \(U=RI\)</td>
+          <td>Loi de Poiseuille \(\Delta p = R_H Q_V\)</td>
+        </tr>
+      <table>
+      
+      <h3>Notion de perte de charge</h3>
+      
+      <div>
+        <u>Définition&#x202f;:</u><br />
+        La perte de charge est la pression supplémentaire qu’il faut imposer entre les extrémités
+        d’une canalisation pour assurer un écoulement stationnaire et compenser le frottement
+        visqueux. Deux termes entrent dans le calcul des pertes de charge&#x202f;:
+        <ol>
+          <li>La perte de charge en ligne dite perte de charge régulière due aux frottements le long
+          du trajet.</li>
+          <li>La perte de charge singulière due à la présence d’obstacles localisés tels que les
+          coudes, les robinets, les vannes, les modifications brutales de section etc.</li>
+        </ol>
+      </div>
+      
+      <div>
+        La perte de charge sera notée \(\Delta p_{\eta}\) et s’exprime en \(\rm{Pa}\).
+      </div>
+      
+      <div>
+        Essayons de donner une forme générale à l’expression de la perte de charge dans une
+        canalisation à l’aide d’une analyse dimensionnelle. Pour cela, utilisons le théorème
+        \(\Pi\).
+      </div>
+      
+      <div>
+        <u>Théorème \(\Pi\)&#x202f;:</u><br />
+        Le théorème \(\Pi\) ou théorème de Vashy-Buckingham est le théorème fondamental de l’analyse
+        dimensionnelle. Supposons que nous cherchions une relation entre \(n\) grandeurs physiques
+        \(g_{i=1 \dots n}\) que l’on considère pertinentes pour décrire un phénomène. Notons \(k\)
+        le nombre de dimensions fondamentales utilisées par ces grandeurs (\(k \le 7\)).<br />
+        Il existe alors \((n−k)\) produits sans dimension notées \(\pi_i\) tels que
+        \(f(\pi_1, \dots, \pi_{n-k} ) = 0\).
+      </div>
+      
+      <div>
+        Considérons une conduite de longueur \(L\), de diamètre \(D\) traversée par un fluide de
+        viscosité \(\eta\) et de masse volumique \(\rho\) circulant à la vitesse moyenne
+        \(\bar{v}\). Supposons qu’il existe une relation entre \(\Delta p_{\eta}\), \(L\), \(D\),
+        \(\rho\), \(\eta\) et \(\bar{v}\).
+      </div>
+      
+      <table>
+        <tr>
+          <th>Grandeurs</th>
+          <td>\(L\)</td>
+          <td>\(D\)</td>
+          <td>\(\rho\)</td>
+          <td>\(\eta\)</td>
+          <td>\(\Delta p_{\eta}\)</td>
+          <td>\(\bar{v}\)</td>
+        </tr>
+        <tr>
+          <th>Dimensions</th>
+          <td>\(\rm{L}\)</td>
+          <td>\(\rm{L}\)</td>
+          <td>\(\rm{ML^{-3}}\)</td>
+          <td>\(\rm{ML^{-1}T^{-1}}\)</td>
+          <td>\(\rm{ML^{-1}T^{-2}}\)</td>
+          <td>\(\rm{LT^{-1}}\)</td>
+        </tr>
+      </table>
+      
+      <div>
+        On a \(n=6\) grandeurs et \(k=3\) dimensions différentes. D’après le théorème \(\Pi\), il
+        existe trois nombres sans dimensions \(\pi_1\), \(\pi_2\) et \(\pi_3\) tels que
+        \(f(\pi_1,\pi_2,\pi_3)=0\). Fabriquons donc trois nombres indépendants sans
+        dimension&#x202f;:
+        <ul>
+          <li>\(L\) et \(D\) étant de même dimension, leur rapport est adimensionné&#x202f;:
+          \(\pi_1=\frac{L}{D}\)</li>
+          <li>le théorème de Bernoulli nous enseigne que \(\frac{1}{2}\rho\bar{v}^2\) est homogène à
+          une pression, ainsi \(\pi_2=\frac{\Delta p_{\eta}}{1/2\rho\bar{v}^2}\)</li>
+          <li>enfin, on sait que le nombre de Reynolds est sans dimension, ce sera
+          \(\pi_3=R_e=\frac{\rho\bar{v}D}{\eta}\)</li>
+        <ul>
+      </div>
+      
+      <div>
+        Ces trois nombres sont liés par une loi.
+        $$
+          \quad \pi_2=\frac{\Delta p_{\eta}}{1/2\rho\bar{v}^2} = f(\pi_1,R_e)
+        $$
+        Par ailleurs, l’expérience montre que la perte de charge régulière \(\Delta p_{\eta}\) est
+        proportionnelle à \(L\). Autrement dit, \(f(\pi_1,R_e) = \pi_1\lambda(R_e)\) d’où&#x202f;:
+        $$
+          \quad \boxed{ \Delta p_{\eta} = \lambda(R_e)\frac{1}{2}\rho\bar{v}^2 \frac{L}{D} }
+        $$
+      </div>
+      
+      <div>
+        Cette relation est appelée équation de Darcy-Weisbach. Le facteur adimensionné \(\lambda\)
+        désigne le <b>coefficient de perte de charge régulière</b> et ne dépend que du nombre de
+        Reynolds pour une canalisation lisse. Dans le cas d’une canalisation rugueuse, un quatrième
+        nombre sans dimension intervient&#x202f;: la rugosité relative \(\epsilon/D\) qui mesure le
+        rapport de la hauteur moyenne des aspérités de la paroi interne de la conduite sur son
+        diamètre interne. La valeur de \(\lambda\) peut être obtenue à l’aide d’abaque comme le
+        diagramme de Moody.
+      </div>
+      
+      <figure>
+        <img src="Moody_diagram.jpg" width="80%">
+        <figcaption>Diagramme de Moody.</figcaption>
+      </figure>
+      
+      <h4>Perte de charge régulière en régime laminaire</h4>
+      
+      <div>
+        En régime laminaire, on remarque sur le diagramme de Moody que pour \(R_e \lt 2000\), le
+        coefficient de perte de charge régulière \(\lambda\) suit une loi de puissance (ce qui donne
+        une droite avec une échelle logarithmique). En effet, en régime laminaire, la perte de
+        charge est donnée par la formule de Poiseuille&#x202f;:
+        $$
+          \quad \Delta p_{\eta} = Q_V \frac{8 \eta L}{\pi R^4}
+            = \bar{v}\pi R^2\frac{8 \eta L}{\pi R^4}
+            = 32 \eta \bar{v} \frac{L}{D^2}
+        $$
+      </div>
+      
+      <div>
+        Or le nombre de Reynolds de cet écoulement laminaire s’écrit&#x202f;:
+        $$
+          \quad R_e = \frac{\rho\bar{v}D}{\eta} \Rightarrow \eta = \frac{\rho\bar{v}D}{R_e}
+        $$
+      </div>
+      
+      <div>
+        Finalement, en régime laminaire&#x202f;:
+        $$
+          \quad \boxed{ \Delta p_{\eta} = \lambda \frac{1}{2}\rho\bar{v}^2 \frac{L}{D}
+          \quad / \quad \lambda = \frac{64}{R_e} }
+        $$
+      </div>
+      
+      <h4>Perte de charge régulière en régime turbulent</h4>
+      
+      <div>
+        En régime turbulent, le coefficient de perte de charge régulière \(\lambda\) augmente
+        brutalement et pour les grands nombres de Reynolds, le coefficient de perte de charge
+        conserve une valeur constante qui ne dépend que de la rugosité relative de la conduite. Dans
+        ce cas, les pertes de charge varient comme le carré du débit. En conclusion, pour diminuer
+        l’ensemble des pertes de charge dans une canalisation, afin de diminuer les coûts de
+        fonctionnement dus aux pompes, il faut, quand c’est possible&#x202f;:
+        <ul>
+          <li>diminuer la longueur de canalisation</li>
+          <li>diminuer le nombre d’accidents sur la canalisation</li>
+          <li>diminuer le débit de circulation</li>
+          <li>augmenter le diamètre des canalisations</li>
+          <li>faire circuler des liquides le moins visqueux possible</li>
+          <li>utiliser des matériaux de faible rugosité</li>
+        </ul>
+      </div>
+      
+      <h4>Pertes de charges singulières</h4>
+      
+      <div>
+        Lorsque dans une conduite, l’écoulement subit de brusques variations de section ou de
+        direction, il se produit des pertes de charges dites <b>singulières</b>. Elles sont données
+        par la formule
+        De la même manière, on peut exprimer les pertes de charge singulières comme suit&#x202f;:
+        $$
+          \quad \Delta p_s = \xi \frac{1}{2}\rho {v_\text{inc}}^2
+        $$
+        où \(\xi\) est <b>le coefficient de perte de charge singulière</b> et \(v_\text{inc}\) est
+        la vitesse moyenne incidente du fluide arrivant sur l’obstacle. Il existe également des
+        tables donnant \(\xi\) en fonction du type d’obstacle.
+      </div>
+      
+      <figure>
+        <img src="coefficient_perte_charge.svg">
+        <figcaption>Coefficients de perte de charge singulière sur quelques géométries.</figcaption>
+      </figure>
+      
+      
+      
+      
+      <h3>Théorème de Bernoulli généralisé</h3>
+      
+      <div>
+        Nous avons vu dans le chapitre consacré aux fluides parfaits, que dans le champ de
+        pesanteur, un fluide incompressible en écoulement stationnaire voit la quantité
+        \(p + \rho \frac{v^2}{2} + \rho g z\) se conserver le long d’une ligne de courant ce qui
+        traduit la conservation de l’énergie. Voyons comment s’exprime le bilan d’énergie dans le
+        cas d’un fluide réel en écoulement stationnaire dans une conduite en tenant compte des
+        échanges mécaniques avec des machines hydrauliques.
+      </div>
+      
+      <div>
+        Considérons un fluide en écoulement stationnaire et incompressible dans un système de
+        conduites où il traverse des machines hydrauliques avec lesquelles il peut échanger de
+        l’énergie&#x202f;:
+        <ul>
+          <li>des pompes donneront de l’énergie mécanique au fluide</li>
+          <li>des turbines recevront de la part du fluide de l’énergie mécanique</li>
+        </ul>
+      </div>
+      
+      <div>
+        Si l’on note \(\mathcal{P}\) la puissance échangée avec le fluide, on a \(\mathcal{P}\gt 0\)
+        pour les pompes et \(\mathcal{P} \lt 0\) pour les turbines.
+      </div>
+      
+      <figure>
+        <img src="machine_hydraulique.svg" width="50%">
+        <figcaption>Écoulement stationnaire dans un système de conduites.</figcaption>
+      </figure>
+      
+      <div>
+        Considérons comme système, le fluide situé dans la conduite entre \(A\) et \(B\) à l’instant
+        \(t\) et entre \(A^{\prime}\) et \(B^{\prime}\) à l’instant \(t+\mathrm{d}t\). Pendant
+        \(\mathrm{d}t\), la masse transférée est&#x202f;:
+        $$
+          \quad \mathrm{d}m = Q_m \mathrm{d}t = \rho Q_V \mathrm{d}t
+        $$
+      </div>
+      
+      <div>
+        Le débit massique est uniforme le long de la canalisation puisqu’en régime
+        permanent&#x202f;:
+        $$
+          \quad \mathrm{div} \overrightarrow{v} = 0 \Rightarrow
+            \iint_{S_1} \rho \overrightarrow{v} \cdot \overrightarrow{\mathrm{d}S}
+            = \iint_{S_2} \rho \overrightarrow{v} \cdot \overrightarrow{\mathrm{d}S}
+        $$
+      </div>
+      
+      <div>
+        Pour simplifier on considère que les grandeurs physiques sont uniformes sur la section
+        droite de la conduite.
+      </div>
+      
+      <div>
+        Le théorème de l’énergie cinétique donne&#x202f;:
+        $$
+          \quad \mathrm{d}\mathcal{E}_c = \mathcal{E}_c(t+\mathrm{d}t) - \mathcal{E}_c(t) = \delta W
+        $$
+        avec \(\delta W\) le travail de toutes les forces (extérieures et intérieures) s’exerçant
+        sur le système.
+      </div>
+      
+      <div>
+        Tout d’abord, le régime étant permanent, la portion de fluide située entre \(A^{\prime}\) et
+        \(B\) conserve son énergie cinétique de sorte que&#x202f;:
+        $$
+          \quad \mathcal{E}_c(t+\mathrm{d}t) - \mathcal{E}_c(t) =
+            \mathcal{E}_c^{BB^{\prime}} - \mathcal{E}_c^{AA^{\prime}} =
+            \frac{1}{2}Q_m\mathrm{d}t\left({v_B}^2 - {v_A}^2 \right)
+        $$
+      </div>
+      
+      <div>
+        Par ailleurs, les forces de pesanteur travaillent d’où le transfert mécanique&#x202f;:
+        $$
+          \quad \mathrm{d} W_g = -Q_m \mathrm{d}t g (z_B - z_A)
+        $$
+      </div>
+      
+      <div>
+        Les machines hydrauliques fournissent une puissance mécanique \(\mathcal{P}\) de sorte que
+        le transfert mécanique effectué pendant la durée \(\mathrm{d}t\) s’écrit&#x202f;:
+        $$
+          \quad \delta W_{méca} = \mathcal{P} \mathrm{d}t
+        $$
+      </div>
+      
+      <div>
+        Quant aux forces de pression, leur travail s’exprime par&#x202f;:
+        $$
+          \quad \delta W_p = -p^{ext} \mathrm{d}V = p_A Q_V \mathrm{d}t - p_B Q_V \mathrm{d}t
+        $$
+      </div>
+      
+      <div>
+        Le fluide est également le siège de forces intérieures. Or, l’écoulement étant
+        incompressible, les particules de fluide se déforment sans changer de volume ce qui explique
+        que les forces de pression interne ne travaillent pas. Par contre, le fluide est le siège
+        d’un travail résistant \(\delta W_{\eta}\) des forces visqueuses. Par définition de la perte
+        de charge, on a&#x202f;:
+        $$
+          \quad \boxed{ \delta W_{\eta} = - Q_V \Delta p_{\eta} \mathrm{d}t }
+        $$
+      </div>
+      
+      <div>
+        Finalement le théorème de l’énergie cinétique donne la relation de Bernoulli
+        généralisée&#x202f;:
+        $$
+          \quad \boxed{ \rho \frac{{v_B}^2}{2} + \rho g z_B + p_B = 
+            \rho \frac{{v_A}^2}{2} + \rho g z_A + p_A + \mathcal{P}/Q_V - \Delta p_{\eta} }
+        $$
+      </div>
+      
+      <div>
+        Notons au passage que l’on retrouve la relation de Bernoulli vu dans le chapitre sur les
+        fluides parfaits à condition de faire \(\mathcal{P} = 0\) et \(\Delta p_{\eta} = 0\).
+      </div>
+      
+      <h2>Traînée et portance</h2>
+      
+      <div>
+        Si l’on met de coté la poussée d’Archimède, la force que ressent un solide plongé dans un
+        écoulement stationnaire tridimensionnelle est nulle si le fluide n’est pas visqueux. En
+        revanche, l’écoulement visqueux autour d’un obstacle solide produit une force qui présente
+        deux composantes&#x202f;: la composante dans le sens de l’écoulement est appelée <b>force de
+        traînée</b>, la composante perpendiculaire est la <b>force de portance</b>.
+      </div>
+      
+      <h3>Formule de Stokes</h3>
+      
+      <div>
+        Stokes s’est intéressé à la force de traînée qu’un écoulement visqueux produit autour d’une
+        sphère. Il s’est placé dans le cas où l’écoulement est gouverné par la viscosité
+        c’est-à-dire pour les petits nombres de Reynolds.
+      </div>
+      
+      <figure>
+        <img src="trainee_sphere.svg" width="50%">
+        <figcaption>Traînée sur un obstacle sphérique immobile.</figcaption>
+      </figure>
+      
+      <div>
+        La résolution complète est assez longue et nous allons nous contenter de la solution sans
+        chercher à la justifier. Stokes obtient qu’une sphère de rayon \(r\), immobile, soumise à un
+        écoulement permanent incompressible et visqueux, pour \(R_e \ll 1\), ressent une force de
+        traînée \(\overrightarrow{F_t}\) proportionnelle à la vitesse d’écoulement et à la taille de
+        la sphère&#x202f;:
+        $$
+          \quad \boxed{ \overrightarrow{F_t} = 6 \pi \eta r \overrightarrow{v_{\infty}} }
+        $$
+        où \(\overrightarrow{v_{\infty}}\) représente la vitesse de l’écoulement par rapport à la
+        sphère et loin de la sphère. Cette force de trainée est liée d’une part à un champ de
+        pression plus important en avant de la bille et d’autre part aux forces visqueuses.
+      </div>
+      
+      <div>
+        Si l’on étudie la chute d’une bille sphérique dans un fluide visqueux au repos (loin de la
+        bille), il faut écrire&#x202f;:
+        $$
+          \quad \overrightarrow{F_t} = -6 \pi \eta r \overrightarrow{v}
+        $$
+        où \(\overrightarrow{v}\) représente la vitesse de la bille dans le référentiel du
+        laboratoire.<br />
+        Cette loi est vérifiée avec une précision meilleure que 1&#x202f;% pour \(R_e \lt 0,3\).
+        Cette contrainte reste cependant assez forte. En effet, pour une bille de 1&#x202f;cm de
+        diamètre tombant dans l’air cela impose \( v \lt 0,5\,\rm{mm.s^{-1}} \) ce qui signifie que
+        la loi du frottement linéaire n’est pas valable (sauf au tout début) dans ce cas. Par contre
+        si la chute s’effectue dans un liquide visqueux tel le glycérol (grosso modo mille fois plus
+        dense que l’air et un million de fois plus visqueux), la contrainte devient \( v \lt 0,5\,
+        \rm{m.s^{-1}} \). Dans ce cas, la loi de Stokes peut être utilisée si la bille n’est pas
+        trop pesante.
+      </div>
+      
+      <h3>Analyse dimensionnelle</h3>
+      
+      <div>
+        L’analyse précédente n’est valable qu’à petit nombre de Reynolds et pour un obstacle
+        sphérique. Plaçons un obstacle quelconque dans un écoulement stationnaire de vitesse
+        \(\overrightarrow{v_{\infty}}\) loin de l’obstacle et cherchons la force \(F\) due à
+        l’écoulement. Le traitement analytique est possible pour des géométries simples et pour des
+        valeurs faibles de \(R_e\) comme nous venons de le voir. Pour des grands nombres de
+        Reynolds, on procède en général à des expériences sur maquette en soufflerie pour avoir
+        accès à la force. Montrons par une analyse dimensionnelle quelle forme doit prendre cette
+        force \(F\).
+      </div>
+      
+      <div>
+        Quelles sont les grandeurs physiques pertinentes du problème&#x202f;? Il faut tout d’abord
+        préciser que la viscosité est essentielle pour justifier l’existence d’une force de
+        frottement. Si le fluide est parfait il n’y a pas de traînée car les couches de fluide
+        glissent sur l’obstacle. Les paramètres pertinents sont donc \(\eta\), \(v_{infty}\) la
+        vitesse du fluide, \(D\) une dimension caractéristique de l’obstacle, \(\rho\) la masse
+        volumique du fluide et la force \(F\).
+      </div>
+      
+      <table>
+        <tr>
+          <th>Grandeurs</th>
+          <td>\(v_{\infty}\)</td>
+          <td>\(D\)</td>
+          <td>\(\rho\)</td>
+          <td>\(\eta\)</td>
+          <td>\(F\)</td>
+        </tr>
+        <tr>
+          <th>Dimensions</th>
+          <td>\(\rm{LT^{-1}}\)</td>
+          <td>\(\rm{L}\)</td>
+          <td>\(\rm{ML^{-3}}\)</td>
+          <td>\(\rm{ML^{-1}T^{-1}}\)</td>
+          <td>\(\rm{MLT^{-2}}\)</td>
+        </tr>
+      </table>
+      
+      <div>
+        On a \(n=5\) grandeurs et \(k=3\) dimensions différentes. D’après le théorème \(\Pi\), il
+        existe deux nombres sans dimensions \(\pi_1\) et \(\pi_2\) liés entre eux. Choisissons le
+        nombre de Reynolds comme premier facteur adimensionné. Part ailleurs, la quantité
+        \(\frac{1}{2}\rho{v_{\infty}}^2\) est homogène à une pression comme \(\frac{F}{D}\).
+        Ainsi&#x202f;:
+        $$
+          \quad \pi_1 = R_e = \frac{\rho v_{\infty} D}{\eta}
+        $$
+        et
+        $$
+          \quad \pi_2 = \frac{F/D^2}{1/2 \rho {v_{\infty}}^2}
+        $$
+      </div>
+      
+      <div>
+        Finalement le théorème \(\Pi\)nous dit que&#x202f;:
+        $$
+          \quad \pi_2 = f(\pi_1) \Rightarrow F = \frac{1}{2} \rho {v_{\infty}}^2 D^2 f(R_e)
+        $$
+      </div>
+      
+      <h3>Coefficients aérodynamiques</h3>
+      
+      <div>
+        La force qu’exerce un fluide en écoulement autour d’un obstacle peut se décomposer en deux
+        composantes&#x202f;:
+        <ul>
+          <li>une composante parallèle à \(\overrightarrow{v_{\infty}}\)&#x202f;: c’est la traînée 
+          \(\overrightarrow{F_t}\)</li>
+          <li>une composante perpendiculaire&#x202f;: c’est la portance
+          \(\overrightarrow{F_p}\)</li>
+        </ul>
+      </div>
+      
+      <div>
+        Ces deux forces s’expriment comme le prévoit la formule précédente. On définit alors deux
+        coefficients de frottement, le \(C_x\) et le \(C_z\).
+      </div>
+      
+      <figure>
+        <img src="portance_et_trainee.svg" width="50%">
+        <figcaption>Portance et traînée.</figcaption>
+      </figure>
+      
+      <h4>Coefficient de traînée</h4>
+      
+      <div>
+        On peut écrire&#x202f;:
+        $$
+          \quad F_t = \frac{1}{2} \rho {v_{\infty}}^2 S C_x(R_e)
+        $$
+        où \(S\) représente une surface caractéristique, en générale, la <b>surface frontale
+        projetée</b>.<br />
+        On constate expérimentalement que le \(C_x\) est quasi constant en régime turbulent (\(R_e\)
+        grand) ce qui correspond aux situations courantes de l’aéronautisme, du nautisme, du
+        cyclisme etc. La traînée peut se décomposer en trois termes&#x202f;:
+        <ul>
+          <li>la traînée visqueuse qui est liée aux frottements du fluide sur l’obstacle</li>
+          <li>la traînée de pression qui est liée à l’existence d’une dépression dans le sillage de
+          l’obstacle quand la couche limite se décolle</li>
+          <li>la traînée induite par la portance</li>
+        </ul>
+      </div>
+      
+      <div>
+        La force de traînée que subit un véhicule (en l’air ou au sol) étant opposée à sa vitesse,
+        elle dissipe de l’énergie. La puissance dissipée s’écrit&#x202f;:
+        $$
+          \quad \mathcal{P} = -\frac{1}{2} \rho  S C_x v^3
+        $$
+        où \(v\) est la vitesse du véhicule.<br />
+        La puissance dissipée est une fonction cubique de la vitesse, elle ne devient donc
+        importante qu’à haute vitesse. Pour minimiser la consommation à grande vitesse, le
+        concepteur aura intérêt à agir sur le produit \(S C_x\).
+      </div>
+      
+      <h4>Coefficient de portance</h4>
+      
+      <div>
+        Lorsque que l’obstacle solide présente trois axes équivalents il ne peut pas exister de
+        portance. C’est le cas de la sphère et du cube. Dans le cas contraire, la portance fait
+        intervenir le coefficient de portance \(C_z\) qui dépend de la forme du solide et de
+        l’écoulement&#x202f;:
+        $$
+          \quad F_p = \frac{1}{2} \rho {v_{\infty}}^2 S C_z(R_e)
+        $$
+      </div>
+      
+      <div>
+        Par exemple, une aile d’avion présente un coefficient de portance qui dépend&#x202f;:
+        <ul>
+          <li>de l’angle d’attaque \(\alpha\). Lorsque cet angle augmente, la portance augmente
+          jusqu’à un angle \(\alpha_{max}\)pour lequel la portance est maximum. Une fois cet angle
+          dépassé, la portance s’effondre, c’est le décrochage</li>
+          <li>du profil de l’aile, notamment de sa cambrure. Une aile symétrique d’angle d’attaque
+          nul ( la corde est parallèle à  \(\overrightarrow{v_{\infty}}\)) ne présente pas de
+          portance. Notez que les hélices d’un hélicoptère sont symétriques&#x202f;: leur portance
+          est liée à leur inclinaison.
+      </div>
+      
+      <div>
+        Pour un avion en vol, on cherche à avoir une faible traînée (pour consommer moins de
+        carburant) et un maximum de portance c’est-à-dire un rapport \(\frac{C_z}{C_x}\) maximum.
+        Ce rapport, appelé finesse de l’aile, est maximum pour un certain angle.
+      </div>
+      
+    </section>
+  </body>
+</html>

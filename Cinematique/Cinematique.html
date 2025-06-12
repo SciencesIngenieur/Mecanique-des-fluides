@@ -1,0 +1,685 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Fluide en écoulement</title>
+    <link rel="stylesheet" type="text/css" media="print,screen" 
+      href="https://sciencesingenieur.github.io/Styles/styles.css"/>
+    <script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+    </script>
+  </head>
+  <body>
+
+    <section>
+    
+      <h1>Fluide en écoulement</h1>
+
+      <h2>Description d’un fluide en écoulement</h2>
+      
+      <h3>Deux points de vue</h3>
+      
+      <div>
+        Tout d’abord, comme on l’a déjà dit, on décrit le fluide comme un ensemble d’une infinité de
+        <b>particules de fluide</b>. On considère, autour d’un point \(P\), un volume mésoscopique
+        \(\mathrm{d}\tau\). Ce volume contient un grand nombre \(N\) de molécules ce qui permet de
+        définir des grandeurs moyennes locales qui, elles, vont évoluer de façon continue. On
+        définit alors la vitesse locale \(\overrightarrow{v}\) d’une particule de fluide \(P\)
+        par&#x202f;:
+        $$
+          \quad \overrightarrow{v_P} = \frac{1}{N} \sum_{i=1}^N \overrightarrow{v_i}
+            = \langle \overrightarrow{v_i} \rangle
+        $$
+        où \(\overrightarrow{v_i}\) est le vecteur vitesse d’une molécule située dans le volume
+        \(\mathrm{d}\tau\). Ainsi, lorsque le fluide est au repos, \(\overrightarrow{v_P} =
+        \overrightarrow{0}\) bien que \( \overrightarrow{v_i} \neq \overrightarrow{0}\).
+      </div>
+      
+      <div>
+        Deux approches différentes existent pour décrire le fluide en mouvement.
+      </div>
+
+      <h4>Point de vue de Lagrange</h4>
+      
+      <div>
+        On s’intéresse à l’histoire des particules de fluide en suivant leur trajectoire. Chaque
+        trajectoire est donc associée à une particule donnée (que l’on notera \(P\)). Au cours du
+        trajet, le vecteur vitesse est tangent à la trajectoire, et l’accélération de la particule
+        s’écrit&#x202f;:
+        $$
+          \quad \overrightarrow{a_P} = \frac{\mathrm{d} \overrightarrow{v_P} }{\mathrm{d} t}
+        $$
+        conformément aux lois vues en mécanique du point.
+      </div>
+      
+      <figure>
+        <img src="trajectoire.svg">
+        <figcaption>Notion de trajectoire.</figcaption>
+      </figure>
+
+      <h4>Point de vue d’Euler</h4>
+      
+      <div>
+        Dans cette approche, on s’intéresse au fluide dans son ensemble à un instant \(t\). Pour
+        chaque point du fluide (notons le \(M\)) on observe le vecteur vitesse à l’instant \(t\).
+        Comme ce vecteur dépend du temps \(t\) et de la position du point considéré, on note cette
+        grandeur \(\overrightarrow{v}(M,t)\) ou \(\overrightarrow{v}(x,y,z,t)\).
+      </div>
+      
+      <div>
+        Du point de vue mathématique, il s’agit d’un <b>champ vectoriel spatio-temporel</b>. Pour
+        représenter le champ de vitesse, on utilise la notion de <b>ligne de champ</b>&#x202f;: à un
+        instant \(t\) fixé, on trace différentes courbes qui ont la particularité d’avoir leur
+        tangente en un point colinéaire à la vitesse en ce même point, ceci pour tous les points de
+        la courbe. Ces courbes sont appelées <b>lignes de courant</b> ou <b>lignes d’écoulement</b>.
+        Notez que la ligne d’écoulement est fondamentalement différente d’une trajectoire, car tous
+        les points de la ligne sont observés au même instant, contrairement à la trajectoire.
+      </div>
+      
+      <figure>
+        <img src="ligne_ecoulement.svg">
+        <figcaption>Notion de ligne d’écoulement. Notez que toutes les vitesses représentées
+        concernent le même instant.</figcaption>
+      </figure>
+      
+      <div>
+        Pour un problème à deux dimensions, l’équation \(f(x,y)=0\) d’une ligne d’écoulement
+        s’obtient en résolvant l’équation différentielle
+        $$
+          \quad \frac{\mathrm{d}y}{\mathrm{d}x} = \frac{v_y(x,y,t)}{v_x(x,y,t)}
+        $$
+        avec \(t\) fixe.
+      </div>
+      
+      <h3>Écoulement stationnaire</h3>
+      
+      <div>
+        <u><b>Définition</b></u></br>
+        Un écoulement est stationnaire (ou permanent) si le champ de vitesse ne dépend pas
+        explicitement du temps \(t\).</br>
+        Mathématiquement cela se traduit par&#x202f;:
+        $$
+          \quad \boxed{ \frac{\partial \overrightarrow{v}(x,y,z,t)}{\partial t}=\overrightarrow{0} }
+        $$
+      </div>
+      
+      <div>
+        Cela signifie que&#x202f;:
+        <ul>
+          <li>l’expression du champ de vitesse ne dépend que de \(x\), \(y\) et \(z\) (en
+          coordonnées cartésiennes)</li>
+          <li>la carte du champ de vitesse est invariable au cours du temps</li>
+          <li>les lignes de courant sont fixes dans le temps</li>
+        </ul>
+      </div>
+      
+      <div>
+        Attention, cela ne signifie pas que les particules se déplacent à vitesse constante.
+      </div>
+      
+      <div>
+        <u>Exemple&#x202f;:</u></br>
+        Supposons un fluide en écoulement présentant un champ de vitesse
+        $$
+          \quad \overrightarrow{v}(M,t) = \frac{x}{\tau} \overrightarrow{u_x}
+        $$
+        avec \(\tau \gt 0\).</br>
+        L’écoulement est stationnaire puisque \( \partial \overrightarrow{v}(M,t) / \partial t =
+        \overrightarrow{0}\). De plus, en tout point, le vecteur vitesse à la même direction. Par
+        conséquent, les lignes d’écoulement sont des droites parallèles de vecteur directeur
+        \(\overrightarrow{u_x}\).</br>
+        Intéressons-nous à la vitesse d’une particule de fluide en particulier. Appelons \(P\) la
+        particule située en \(x_0\) à l’instant \(t=0\) et notons \(x_P(t)\) et
+        \(\overrightarrow{v_P}(t)\) respectivement sa position et sa vitesse au cours du temps. Le
+        lien entre la <q>vitesse eulérienne</q> \(\overrightarrow{v}(M,t)\) et la <q>vitesse
+        lagrangienne</q>  \(\overrightarrow{v_P}(t)\) se traduit par&#x202f;:
+        $$
+          \quad \overrightarrow{v}(P(t),t) = \overrightarrow{v_P}(t)
+        $$
+        soit
+        $$
+          \quad \frac{x}{\tau} = \frac{\mathrm{d} x_P}{\mathrm{d}t}
+        $$
+        équation différentielle d’ordre un dont la solution s’écrit&#x202f;:
+        $$
+          \quad x_P = x_0 \rm{e}^{t/\tau}
+        $$
+        d’où
+        $$
+          \quad v_P = \frac{\mathrm{d} x_P}{\mathrm{d}t} = \frac{x_0}{\tau} \rm{e}^{t/\tau}
+        $$
+        Comme on le voit, la vitesse de P varie au cours du temps bien que l’écoulement soit
+        stationnaire.
+      </div>
+      
+      <div>
+        Sur l’exemple précédent, on constate également que la trajectoire d’une particule se
+        confond avec la ligne d’écoulement. Cette propriété se généralise pour tous les écoulements
+        stationnaires.
+      </div>
+      
+      <h3>Accélération d’une particule</h3>
+      
+      <div>
+        Supposons que l’on connaisse le champ de vitesse eulérien \(\overrightarrow{v}(M,t)\) et que
+        l’on veuille déterminer l’accélération \(\overrightarrow{a}(M,t)\), c’est-à-dire
+        l’accélération d’une particule de fluide située à l’instant \(t\) au même point \(M\).
+      </div>
+      
+      <div>
+        La difficulté du calcul réside dans le fait que si une particule se situe en \(M\) à
+        l’instant \(t\), elle ne situe plus au même point à l’instant . C’est
+        pourquoi, on ne peut pas écrire \(\overrightarrow{a}(M,t) = \partial \overrightarrow{v}(M,t)
+        /\partial t\).
+      </div>
+      
+      <div>
+        Considérons une particule \(P\) située en \(M(x,y,z)\) à l’instant \(t\). Elle se trouve
+        alors en \(M^\prime(x + \delta x, y + \delta y, z + \delta z)\) à l’instant \(t+\delta t\).
+        Par définition, la particule présente une accélération&#x202f;:
+        $$
+          \quad \begin{aligned} \overrightarrow{a} &= \lim_{\delta t \to 0}
+          \frac{\overrightarrow{v}(M^\prime,t+\delta t) - \overrightarrow{v}(M,t)}{\delta t} \\
+          &= \lim_{\delta t \to 0}
+          \frac{\overrightarrow{v}(x + \delta x, y + \delta y, z + \delta z,t+\delta t)
+            - \overrightarrow{v}(x,y,z,t)}{\delta t}
+          \end{aligned}
+        $$
+      </div>
+      
+      <div>
+        En utilisant le développement de Taylor à l’ordre un, on obtient&#x202f;:
+        $$
+          \quad \overrightarrow{v}(x + \delta x, y + \delta y, z + \delta z,t+\delta t)
+            \underset{\delta t \to 0}{=} \overrightarrow{v}(x,y,z,t)
+            + \delta x \frac{\partial \overrightarrow{v}}{\partial x}
+            + \delta y \frac{\partial \overrightarrow{v}}{\partial y}
+            + \delta z \frac{\partial \overrightarrow{v}}{\partial z}
+            + \delta t \frac{\partial \overrightarrow{v}}{\partial t}
+        $$
+      </div>
+      
+      <div>
+        De sorte que
+        $$
+          \quad \overrightarrow{a} =
+              \underbrace{ \lim_{\delta t \to 0} \frac{\delta x}{\delta t} }_{v_x}
+                \frac{\partial \overrightarrow{v}}{\partial x}
+            + \underbrace{ \lim_{\delta t \to 0} \frac{\delta y}{\delta t} }_{v_y}
+                \frac{\partial \overrightarrow{v}}{\partial y}
+            + \underbrace{ \lim_{\delta t \to 0} \frac{\delta z}{\delta t} }_{v_z}
+                \frac{\partial \overrightarrow{v}}{\partial z}
+            + \frac{\partial \overrightarrow{v}}{\partial t}
+        $$
+      </div>
+      
+      <div>
+        Expression que l’on peut mettre sous forme compacte
+        $$
+          \quad \overrightarrow{a} = \frac{\partial \overrightarrow{v}}{\partial t}
+            + \underbrace{ \left(
+                v_x \frac{\partial \overrightarrow{v}}{\partial x}
+              + v_y \frac{\partial \overrightarrow{v}}{\partial y}
+              + v_z \frac{\partial \overrightarrow{v}}{\partial z}
+              \right) }_{\overrightarrow{v} \cdot \overrightarrow{\nabla} } \overrightarrow{v}
+        $$
+      </div>
+      
+      <div>
+        <u><b>Champ d’accélération</b></u></br>
+        Si une particule de fuide présente un vecteur vitesse \(\overrightarrow{v}(M,t)\) lorsqu’il
+        est en \(M\) à l’instant \(t\), alors son accélération vaut
+        $$
+          \quad \boxed{ \overrightarrow{a} = \frac{\partial \overrightarrow{v}}{\partial t}
+            + \left( \overrightarrow{v} \cdot \overrightarrow{\nabla} \right) \overrightarrow{v} }
+        $$
+      </div>
+      
+      <div>
+        Le premier terme est lié au caractère non permanent de l’écoulement alors que le second au
+        fait que la particule, en se déplaçant, visite des endroits où la vitesse change. On
+        l’appelle le <b>terme convectif</b>.
+      </div>
+      
+      <div>
+        
+      </div>
+      
+      <h3>Dérivée particulaire</h3>
+      
+      <div>
+        Nous venons de calculer le taux de variation du vecteur vitesse <b>lorsque l’on suit une
+        particule</b>. Une telle grandeur est appelée <b>dérivée particulaire de la vitesse</b>.
+        Nous la notons&#x202f;:
+        $$
+          \quad \frac{\mathrm{D}\overrightarrow{v}}{\mathrm{D}t}
+        $$
+      </div>
+      
+      <div>
+        Le raisonnement effectuée pour la vitesse peut s’appliquer à toute grandeur physique
+        \(G(M,t)\) attachée à une particule de fluide située en \(M\) à l’instant \(t\). Lorsque
+        l’on suit la particule, le taux de variation de la grandeur \(G\) vaut&#x202f;:
+        $$
+          \quad \boxed{ \frac{\mathrm{D}G}{\mathrm{D}t}
+            = \frac{\partial G}{\partial t}
+             + \left( \overrightarrow{v} \cdot \overrightarrow{\nabla} \right) G }
+        $$
+      </div>
+      
+      <h2>Conservation de la masse</h2>
+      
+      <h3>Débit massique</h3>
+      
+      <div>
+        Un écoulement est un phénomène de transport puisqu’il s’agit d’un transfert de masse. Et
+        comme pour tout phénomène de transport, on est amené à définir la notion de flux et de
+        courant.
+      </div>
+      
+      <div>
+        Commençons par le flux de masse, que l’on appelle plus communément <b>débit massique</b>.
+        Par définition, le débit massique, que l’on note \(D_m\), est la masse qui traverse une
+        surface par unité de temps. Plus précisément, si \(\mathrm{d}m\) est la masse qui traverse
+        la surface \((S)\) entre \(t\) et \(t + \mathrm{d}t\), on a&#x202f;:
+        $$
+          \quad \boxed{ \begin{aligned}
+            &\mathrm{d}m &= \quad &D_m \quad \times &\mathrm{d}t \\
+            &[\rm{kg}]   &= \quad &[\rm{kg.s^{-1}}] &[\rm{s}]
+          \end{aligned} }
+        $$
+      </div>
+      
+      <div>
+        Le débit massique peut se calculer à l’aide d’une intégrale de surface sous la forme
+        $$
+          \quad \boxed{ D_m = \iint_{(S)} \overrightarrow{j_m}
+            \cdot \overrightarrow{n}\,\mathrm{d}S }
+        $$
+        où \(\overrightarrow{j_m}\) désigne le vecteur <b>courant de masse</b>.
+      </div>
+      
+      <div>
+        Cherchons à exprimer le vecteur courant en fonction des caractéristiques du fluide en
+        écoulement.
+      </div>
+      
+      <div>
+        Pour cela, considérons une section infinitésimale \(\mathrm{d}S\) autour d’un point \(M\)
+        et calculons la masse \(\mathrm{d}^2m\) de fluide traversant \(\mathrm{d}S\) pendant
+        \(\mathrm{d}t\). Cette masse se trouve dans le prisme de base \(\mathrm{d}S\) et de
+        génératrice \(\overrightarrow{v}\mathrm{d}t\). On a donc&#x202f;:
+        $$
+          \quad \begin{aligned} \mathrm{d}^2m &=
+            \rho \times \left( \mathrm{d}S \times v \mathrm{d}t \cdot \cos \alpha \right) \\
+            &= \rho \overrightarrow{v} \cdot \overrightarrow{n}  \mathrm{d}t \mathrm{d}S
+            \end{aligned}
+        $$
+        où \(\overrightarrow{n}\) est le vecteur normal à la section \(\mathrm{d}S\).
+      </div>
+      
+      <figure>
+        <img src="debit_massique.svg">
+        <figcaption>Calcul du débit massique.</figcaption>
+      </figure>
+      
+      <div>
+        Pour une surface macroscopique (S), il suffit de sommer toutes les contributions&#x202f;:
+        $$
+          \quad \mathrm{d}m = \left( \iint_{M \in (S)} {
+            \rho(M,t)\overrightarrow{v}(M,t) \cdot \overrightarrow{n}\,\mathrm{d}S }
+            \right) \mathrm{d}t
+        $$
+      </div>
+      
+      <div>
+        On en déduit le <b>flux de matière</b> ou <b>débit massique</b>&#x202f;:
+        $$
+          \quad D_m \overset{def}{=} \iint_{(S)} \overrightarrow{j_m}(M,t)
+            \cdot \overrightarrow{n}\,\mathrm{d}S
+        $$
+        avec
+        $$
+          \quad \boxed{ \overrightarrow{j_m}(M,t) = \rho(M,t)\overrightarrow{v}(M,t) }
+        $$
+      </div>
+      
+      <h3>Débit volumique</h3>
+      
+      <div>
+        Divisons l’équation du débit massique par la masse volumique&#x202f;:
+        $$
+          \quad \frac{\mathrm{d}m}{\rho} = \mathrm{d}V = \frac{D_m}{\rho}\mathrm{d}t
+        $$
+        où \(\mathrm{d}V\) représente le volume transportée pendant \(\mathrm{d}t\).
+      </div>
+      
+      <div>
+        On en déduit le débit volumique&#x202f;:
+        $$
+          \quad \boxed{ D_V \overset{\text{def}}{=} \frac{\mathrm{d}V}{\mathrm{d}t}
+            = \iint_{M \in (S)} \overrightarrow{v}(M,t) \cdot \overrightarrow{n}\,\mathrm{d}S }
+        $$
+      </div>
+      
+      <div>
+        Ainsi le flux du vecteur vitesse à travers une surface, donne le débit volumique qui le
+        traverse.
+      </div>
+      
+      <h3>Équation de continuité</h3>
+      
+      <div>
+        Établissons la première équation fondamentale de la mécanique des fluides. Il s’agit d’une
+        contrainte imposée à \(\overrightarrow{v}(M,t)\) et \(\rho(M,t)\) qui traduit la
+        conservation de la masse.
+      </div>
+      
+      <div>
+        Prenons un volume de contrôle fixe \((V)\) dans un fluide, délimité par une surface fictive
+        \((S)\). Soit \(m(t)\) la masse contenue à l’intérieur de la surface fermée à l’instant
+        \(t\). Par définition de la masse volumique,
+        $$
+          \quad m(t) = \iiint_{M \in V} { \rho(M,t) \mathrm{d}\tau}
+        $$
+      </div>
+      
+      <div>
+        Cette masse varie à cause du flux de matière à travers \((S)\)&#x202f;:
+        $$
+          \quad \frac{\mathrm{d}m(t)}{\mathrm{d}t} = - D_m^\text{sortant}
+            = -\bigcirc\!\!\!\!\!\!\!\!\int\!\!\!\!\int_{M \in (S)}{ \rho\overrightarrow{v} \cdot
+              \overrightarrow{n}{}^{\text{ext}}\, \mathrm{d}S }
+        $$
+        où \(\overrightarrow{n}{}^{\text{ext}}\) est dirigé vers l’extérieur de la surface fermée
+        \((S)\) ce qui explique l’origine du signe \(-\) devant l’intégrale.
+      </div>
+      
+      <figure>
+        <img src="debit_massique_S_fermee.svg">
+        <figcaption>Calcul du débit massique sortant d’une surface fermée.</figcaption>
+      </figure>
+
+      <div>
+        D’après le <a href="https://sciencesingenieur.github.io/Mathematiques/Analyse_Vectorielle/Analyse_Vectorielle.html#theoreme_divergence" target="_blank">
+        théorème de Green-Ostrogradsky</a> on a alors&#x202f;:
+        $$
+          \quad \frac{\mathrm{d}m(t)}{\mathrm{d}t}
+            = -\iiint_{M \in V} { \mathrm{div}(\rho(M,t)\overrightarrow{v}) \mathrm{d}\tau }
+        $$
+      </div>
+      
+      <div>
+        On a également&#x202f;:
+        $$
+          \quad \frac{\mathrm{d}m(t)}{\mathrm{d}t} =
+            \iiint_{M \in V} { \frac{\partial \rho(M,t)}{\partial t} \mathrm{d}\tau}
+        $$
+      </div>
+      
+      <div>
+        On obtient alors&#x202f;:
+        $$
+          \quad \iiint_{M \in V} { \left[ 
+              \mathrm{div}(\rho\overrightarrow{v}) + \frac{\partial \rho}{\partial t} 
+            \right] \mathrm{d}\tau} = 0
+        $$
+        L’intégrale volumique est nulle&#x202f;; comme cette nullité est valable quel que soit le
+        volume de contrôle \(V\) considéré, la relation sous l’intégrale est forcément identiquement
+        nulle.
+      </div>
+      
+      <div>
+        On en tire l’équation de conservation de la masse, dite aussi <b>équation de
+        continuité</b>&#x202f;:
+        $$
+          \quad \boxed{ \mathrm{div}(\rho\overrightarrow{v})
+              + \frac{\partial \rho}{\partial t} = 0 }
+        $$
+      </div>
+      
+      <h2>Caractéristiques d’un écoulement</h2>
+      
+      <h3>Dilatation d’une particule de fluide</h3>
+      
+      <div>
+        La quantité \(\mathrm{div}(\overrightarrow{v})\) prend une signification bien précise en
+        mécanique des fluides. Partons de la relation&#x202f;:
+        $$
+          \quad \mathrm{div}(f \cdot \overrightarrow{A}) =
+            f\mathrm{div}(\overrightarrow{A}) 
+            + \overrightarrow{A} \cdot \overrightarrow{\mathrm{grad}}(f)
+        $$
+      </div>
+      
+      <div>
+        Appliqué au vecteur densité de courant de matière \(\overrightarrow{j _m} = \rho
+        \overrightarrow{v} \) cela donne&#x202f;:
+        $$
+          \quad \mathrm{div}(\rho \overrightarrow{v}) =
+            \rho\mathrm{div}(\overrightarrow{v}) 
+            + \overrightarrow{v} \cdot \overrightarrow{\mathrm{grad}}(\rho)
+        $$
+      </div>
+      
+      <div>
+        En utilisant l’équation de continuité on obtient&#x202f;:
+        $$
+          \quad \frac{\partial \rho}{\partial t} + \overrightarrow{v} \cdot
+            \overrightarrow{\mathrm{grad}}(\rho) = -\rho\mathrm{div}(\overrightarrow{v})
+        $$
+      </div>
+      
+      <div>
+        On reconnaît dans le terme de gauche, la dérivée particulaire de \(\rho\), d’où&#x202f;:
+        $$
+          \quad \mathrm{div}(\overrightarrow{v})= -\frac{1}{\rho} \frac{\mathrm{D}\rho}{\mathrm{D}t}
+        $$
+      </div>
+      
+      <div>
+        Si l’on note \(\delta m\) et \(\delta \tau\) la masse et le volume d’une particule de fluide
+        en mouvement on peut écrire&#x202f;:
+        $$
+          \quad -\frac{1}{\rho} \frac{\mathrm{D}\rho}{\mathrm{D}t} =
+            -\frac{1}{\rho} \frac{\mathrm{D}(\delta m / \delta \tau)}{\mathrm{D}t}
+            = \frac{\delta m}{\rho {\delta \tau}^2} \frac{\mathrm{D}\delta \tau}{\mathrm{D}t}
+            = \frac{1}{\delta \tau} \frac{\mathrm{D}\delta \tau}{\mathrm{D}t}
+        $$
+      </div>
+      
+      <div>
+        Finalement on obtient&#x202f;:
+        $$
+          \quad \boxed{ \mathrm{div}(\overrightarrow{v})= 
+            \frac{1}{\delta \tau} \frac{\mathrm{D}\delta \tau}{\mathrm{D}t}}
+        $$
+        La divergence de la vitesse d’écoulement représente ainsi la vitesse de dilatation de la
+        particule de fluide.
+      </div>
+      
+      <h4>Exemple 1&#x202f;: écoulement unidimensionnel uniforme</h4>
+      
+      <div>
+        Considérons l’écoulement décrit par le champ de vitesse&#x202f;:
+        $$
+          \quad \overrightarrow{v}(M,t) = v \overrightarrow{u_x}
+        $$
+        avec \(v = \rm{C^{te}}\).
+      </div>
+      
+      <div>
+        Les lignes de courant sont des droites parallèles et l’écoulement est à divergence nulle.
+        Les particules de fluide se déplacent sans se dilater.
+      </div>
+      
+      <figure>
+        <img src="ecoulement_uniforme.svg">
+        <figcaption>Particule de fluide dans un écoulement uniforme, capturé à différents
+          instants.</figcaption>
+      </figure>
+      
+      <h4>Exemple 2&#x202f;: écoulement radial</h4>
+      
+      <div>
+        Considérons l’écoulement décrit en coordonnées polaires par le champ de vitesse&#x202f;:
+        $$
+          \quad \overrightarrow{v}(M,t) = v \overrightarrow{u_r}
+        $$
+        avec \(v = \rm{C^{te}}\).
+      </div>
+      
+      <div>
+        Les lignes de courant sont des droites issues de l’origine et les particules de fluide se
+        déplacent en se dilatant, ce qui prouve que l’écoulement est à divergence positive.
+      </div>
+      
+      <figure>
+        <img src="ecoulement_radial.svg">
+        <figcaption>Particule de fluide dans un écoulement radial, capturé à différents
+          instants.</figcaption>
+      </figure>
+      
+      <h3>Écoulement incompressible</h3>
+      
+      <h4>Définition</h4>
+      
+      <div>
+        Un fluide est en écoulement incompressible quand les particules de fluide ont un volume qui
+        reste constant au cours de l’écoulement. Elles se déforment donc sans variation de masse
+        volumique&#x202f;:
+        $$
+          \quad \boxed{ \frac{\mathrm{D}\rho}{\mathrm{D}t} = 0 }
+        $$
+      </div>
+      
+      <div>
+        Par conséquent, d’après la relation sur la divergence de la vitesse, un fluide en écoulement
+        incompressible vérifie la relation&#x202f;:
+        $$
+          \quad \mathrm{div}(\overrightarrow{v}) = 0 \Leftrightarrow 
+            \bigcirc\!\!\!\!\!\!\!\!\int\!\!\!\!\int_{(S)}
+              {\overrightarrow{v} \cdot \overrightarrow{n}{}^{\text{ext}}\, \mathrm{d}S } = 0
+        $$
+        La vitesse est à flux conservatif.
+      </div>
+      
+      <h4>Tube de courant</h4>
+      
+      <div>
+        Toutes les lignes de courant qui s’appuient sur une courbe \(\mathcal{C}\) fermée
+        constituent un tube de courant. Dans ce cas, la conservation du flux de vitesse s’exprime
+        par&#x202f;:
+        $$
+          \quad -\iint_{(S_1)}\overrightarrow{v}\cdot\overrightarrow{n}{}^{\text{ext}}\,\mathrm{d}S
+            = \iint_{(S_2)}\overrightarrow{v} \cdot \overrightarrow{n}{}^{\text{ext}}\,\mathrm{d}S
+        $$
+        soit
+        $$
+          \quad D_{V1} = D_{V2}
+        $$
+        <b>Le débit volumique se conserve le long d’un tube de courant</b>.
+      </div>
+      
+      <figure>
+        <img src="tube_courant.svg">
+        <figcaption>Tube de courant.</figcaption>
+      </figure>
+      
+      <div>
+        Si l’on définit la vitesse moyenne dans la section \(S\) par&#x202f;:
+        $$
+          \quad \boxed{ \overline{v} \overset{def}{=} \frac{D_V}{S} }
+        $$
+        On obtient
+        $$
+          \quad \overline{v_1}S_1 = \overline{v_2}S_2
+        $$
+        Autrement dit, dans un tube de courant, le <b>resserrement des lignes de courant provoque
+        une augmentation de la vitesse moyenne</b>.
+      </div>
+      
+      <h3>Interprétation du rotationnel de la vitesse</h3>
+      
+      <h4>Exemple</h4>
+      
+      <div>
+        Commençons par l’étude de l’exemple suivant.<br />
+        Soit un écoulement bidimensionnel dont le champ de vitesse s’écrit&#x202f;:
+        $$
+          \quad \overrightarrow{v}(M,t) = -k y \overrightarrow{u_x} + k x \overrightarrow{u_y}
+        $$
+      </div>
+      
+      <div>
+        Tout d’abord, on constate que&#x202f;:
+        $$
+          \quad \mathrm{div}(\overrightarrow{v})=
+            \frac{\partial(-ky)}{\partial x}+\frac{\partial(kx)}{\partial y}=0
+        $$
+        L’écoulement est incompressible.
+      </div>
+      
+      <div>
+        Le rotationnel de la vitesse vaut&#x202f;:
+        $$
+          \quad \overrightarrow{\mathrm{rot}}(\overrightarrow{v})
+            = \overrightarrow{\nabla} \wedge \overrightarrow{v}
+            = \left( \frac{\partial(kx)}{\partial x} - \frac{\partial(-ky)}{\partial y} \right) 
+              \overrightarrow{u_z}
+            = 2k\overrightarrow{u_z}
+        $$
+      </div>
+      
+      <div>
+        Plaçons une particule carrée d’arête \(2a\) en \(O\). Quel est son mouvement&#x202f;?<br />
+        La figure ci-dessous montre que les sommets sont animés d’une vitesse orthoradiale de sorte
+        que la particule tourne autour de \(O\). La vitesse d’un sommet vaut \(v = \sqrt{2}ka\) d’où
+        une vitesse angulaire de rotation \(\omega = k\).
+      </div>
+      
+      <figure>
+        <img src="ecoulement_rotationnel.png">
+        <figcaption>Particule de fluide dans un écoulement radial, capturé à différents
+          instants.</figcaption>
+      </figure>
+      
+      <h4>Vecteur tourbillon</h4>
+      
+      <div>
+        L’exemple précédent montre que pour un écoulement rotationnel, les particules de fluide
+        tournent à une vitesse angulaire égal à la moitié de la valeur du rotationnel. De manière
+        générale, on définit le <b>vecteur tourbillon</b>&#x202f;:
+        $$
+          \quad \overrightarrow{\Omega}
+            = \frac{1}{2} \overrightarrow{\mathrm{rot}}\overrightarrow{v}
+        $$
+      </div>
+      
+      <div>
+        Lorsque \(\overrightarrow{\Omega} \neq \overrightarrow{0}\), l’écoulement est
+        tourbillonnaire ce qui se traduit par l’existence d’un mouvement de rotation des particules
+        lors de l’écoulement.
+      </div>
+      
+      <figure>
+        <img src="karman_vortex_street_ani.gif">
+        <figcaption>Allée tourbillonnaire de Von Karman produit par un écoulement suffisamment
+          rapide autour d’un obstacle cylindrique.</figcaption>
+      </figure>
+      
+      <h4>Écoulement potentiel</h4>
+      
+      <div>
+        Lorsque \(\overrightarrow{\Omega} = \overrightarrow{0}\), le champ de vitesse est
+        nécessairement un gradient.
+        $$
+          \quad \overrightarrow{\mathrm{rot}}\overrightarrow{v} = \overrightarrow{0}
+          \Rightarrow \overrightarrow{v} = \overrightarrow{\nabla} \varphi
+        $$
+        où \( \varphi(M,t) \) désigne le <b>potentiel des vitesses</b>. Dans ce cas on parle
+        d’écoulement <b>irrotationnel</b> ou <b>potentiel</b>.
+      </div>
+
+    </section>
+  </body>
+</html>
